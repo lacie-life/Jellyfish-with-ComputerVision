@@ -13,3 +13,15 @@ Digital image processing deals with manipulation of digital images through a dig
 
 ![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Home/img/introduction_image.jpg?raw=true)
 
+In the above figure, an image has been captured by a camera and has been sent to a digital system to remove all the other details, and just focus on the water drop by zooming it in such a way that the quality of the image remains the same
+
+## Prerequisites
+
+### Signals and systems
+Since DIP is a subfield of signals and systems , so it would be good if you already have some knowledge about signals and systems , but it is not necessary. But you must have some basic concepts of digital electronics.
+
+### Calculus and probability
+Basic understanding of calculus , probability and differential equations is also required for better understanding.
+
+### Basic programming skills
+Other than this, it requires some of the basic programming skills on any of the popular languages such as C++ , Java , or MATLAB.
