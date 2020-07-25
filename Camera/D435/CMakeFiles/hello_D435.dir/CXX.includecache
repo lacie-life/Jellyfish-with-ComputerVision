@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lacie/Dev/test_D435/src/main.cpp
+librealsense2/rs.hpp
+-
+opencv2/opencv.hpp
+-
+string
+-
+iostream
+-
+stdio.h
+-
+stdarg.h
+-
+
