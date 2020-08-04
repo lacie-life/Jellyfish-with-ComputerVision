@@ -24,13 +24,11 @@ The value of f(x,y) at any point is gives the pixel value at that point of an im
 ![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/what_is_image.jpg?raw=true)
 
 The above figure is an example of digital image that you are now viewing on your computer screen. But actually , this image is nothing but a two dimensional array of numbers ranging between 0 and 255.
-
+|x|x|x|
+|---|---|---|
 |128|30|123|
-|---|---|---|
 |232|123|321|
-|---|---|---|
 |123|77|89|
-|---|---|---|
 |80|255|255|
 
 Each number represents the value of the function f(x,y) at any point. In this case the value 128 , 230 ,123 each represents an individual pixel value. The dimensions of the picture is actually the dimensions of this two dimensional array.
