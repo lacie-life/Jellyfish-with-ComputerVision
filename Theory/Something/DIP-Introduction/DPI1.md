@@ -21,7 +21,7 @@ An image is nothing more than a two dimensional signal. It is defined by the mat
 
 The value of f(x,y) at any point is gives the pixel value at that point of an image.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/img/what_is_image.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/what_is_image.jpg?raw=true)
 
 The above figure is an example of digital image that you are now viewing on your computer screen. But actually , this image is nothing but a two dimensional array of numbers ranging between 0 and 255.
 
@@ -58,13 +58,13 @@ Since capturing an image from a camera is a physical process. The sunlight is us
 
 Machine vision or computer vision deals with developing a system in which the input is an image and the output is some information. For example: Developing a system that scans human face and opens any kind of lock. This system would look something like this.
 
-![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/img/machine_computer_vision.jpg?raw=true)
+![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/machine_computer_vision.jpg?raw=true)
 
 ## Computer graphics
 
 Computer graphics deals with the formation of images from object models, rather then the image is captured by some device. For example: Object rendering. Generating an image from an object model. Such a system would look something like this.
 
-![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/img/computer_graphics.jpg?raw=true)
+![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/DIP-Introduction/computer_graphics.jpg?raw=true)
 
 ## Artifical Intelligence
 
