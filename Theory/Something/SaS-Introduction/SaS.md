@@ -14,7 +14,7 @@ Another example is of sin wave which is shown in the figure below.
 
 Y = sin(x) where x is independent
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/SaS-Introduction/sinware.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/SaS-Introduction/sinwave.jpg?raw=true)
 
 # Digital signals
 
@@ -92,5 +92,5 @@ The type of systems whose input and output both are continuous signals or analog
 
 The type of systems whose input and output both are discrete signals or digital signals are called digital systems.
 
-![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/SaS-Introduction/discrete_systems.jpg?raw=true)
+![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/SaS-Introduction/discrete_signals.jpg?raw=true)
 
