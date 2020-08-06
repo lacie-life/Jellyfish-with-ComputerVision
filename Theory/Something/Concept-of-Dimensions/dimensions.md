@@ -81,7 +81,7 @@ F(x,y,z) = animated character.
 
 Another axis or dimension Z is involved in a three dimension, that gives the illusion of depth. In a Cartesian co-ordinate system it can be viewed as:
 
-![Figure 7](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Concept-of-Dimensions/3_dimensions_signal.jpg?raw=true)
+![Figure 7](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Concept-of-Dimensions/3_dimension_signal.jpg?raw=true)
 
 4. 4 dimension signal
 In a four dimensional signal, four dimensions are involved. The first three are the same as of three dimensional signal which are: (X, Y, Z), and the fourth one which is added to them is T(time). Time is often referred to as temporal dimension which is a way to measure change. Mathematically a four d signal can be stated as:
