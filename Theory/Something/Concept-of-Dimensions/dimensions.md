@@ -51,7 +51,7 @@ Now this lead to another question, which is, even though it is a one dimensional
 
 Perhaps you can understand the concept of one dimension more better by looking at the figure below.
 
-![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Concept-of-Dimensions/one_dimension_point.jpg?raw=true)
+![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Concept-of-Dimensions/one_dimension_points.jpg?raw=true)
 
 Now refer back to our initial discussion on dimension, Consider the above figure a real line with positive numbers from one point to the other. Now if we have to explain the location of any point on this line, we just need only one number, which means only one dimension.
 
@@ -59,7 +59,7 @@ Now refer back to our initial discussion on dimension, Consider the above figure
 
 The common example of a two dimensional signal is an image, which has already been discussed above.
 
-![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Concept-of-Dimensions/two_dimensions.jpg?raw=true)
+![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Concept-of-Dimensions/two_dimension.jpg?raw=true)
 
 As we have already seen that an image is two dimensional signal, i-e: it has two dimensions. It can be mathematically represented as:
 
