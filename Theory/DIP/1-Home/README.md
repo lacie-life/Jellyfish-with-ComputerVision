@@ -11,7 +11,7 @@ Digital image processing deals with manipulation of digital images through a dig
 ## How it works?
 
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Home/img/introduction_image.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/1-Home/img/introduction_image.jpg?raw=true)
 
 In the above figure, an image has been captured by a camera and has been sent to a digital system to remove all the other details, and just focus on the water drop by zooming it in such a way that the quality of the image remains the same
 

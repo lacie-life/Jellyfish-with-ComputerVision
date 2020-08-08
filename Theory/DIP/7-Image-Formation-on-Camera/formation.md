@@ -6,7 +6,7 @@ Before we discuss , the image formation on analog and digital cameras , we have 
 
 When light falls upon the particular object , it is reflected back after striking through the object. The rays of light when passed through the lens of eye , form a particular angle , and the image is formed on the retina which is the back side of the wall. The image that is formed is inverted. This image is then interpreted by the brain and that makes us able to understand things. Due to angle formation , we are able to perceive the height and depth of the object we are seeing. This has been more explained in the tutorial of perspective transformation.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Image-Formation-on-Camera/image_formation_on_camera.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/7-Image-Formation-on-Camera/image_formation_on_camera.jpg?raw=true)
 
 As you can see in the above figure, that when sun light falls on the object (in this case the object is a face), it is reflected back and different rays form different angle when they are passed through the lens and an invert image of the object has been formed on the back wall. The last portion of the figure denotes that the object has been interpreted by the brain and re-inverted.
 
@@ -14,7 +14,7 @@ Now lets take our discussion back to the image formation on analog and digital c
 
 ## Image formation on analog cameras
 
-![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Image-Formation-on-Camera/image_formation_using_strip.jpg?raw=true)
+![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/7-Image-Formation-on-Camera/image_formation_using_strip.jpg?raw=true)
 
 In analog cameras , the image formation is due to the chemical reaction that takes place on the strip that is used for image formation.
 
@@ -22,7 +22,7 @@ A 35mm strip is used in analog camera. It is denoted in the figure by 35mm film 
 
 In analog cameras , the image formation is due to the chemical reaction that takes place on the strip that is used for image formation.
 
-![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Image-Formation-on-Camera/analog_strip.jpg?raw=true)
+![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/7-Image-Formation-on-Camera/analog_strip.jpg?raw=true)
 
 A 35mm strip is used in analog camera. It is denoted in the figure by 35mm film cartridge. This strip is coated with silver halide ( a chemical substance).
 
@@ -32,7 +32,7 @@ In order to understand it better , have a look at this equation.
 
 Photons (light particles) + silver halide ? silver ? image negative.
 
-![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Image-Formation-on-Camera/silver_halide_negatives.jpg?raw=true)
+![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/7-Image-Formation-on-Camera/silver_halide_negatives.jpg?raw=true)
 
 This is just the basics, although image formation involves many other concepts regarding the passing of light inside , and the concepts of shutter and shutter speed and aperture and its opening but for now we will move on to the next part. Although most of these concepts have been discussed in our tutorial of shutter and aperture.
 
@@ -44,13 +44,13 @@ In the digital cameras , the image formation is not due to the chemical reaction
 
 1. Image formation through CCD array
 
-![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Image-Formation-on-Camera/ccd_array.jpg?raw=true)
+![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/7-Image-Formation-on-Camera/ccd_array.jpg?raw=true)
 
 CCD stands for charge-coupled device. It is an image sensor, and like other sensors it senses the values and converts them into an electric signal. In case of CCD it senses the image and convert it into electric signal e.t.c.
 
 This CCD is actually in the shape of array or a rectangular grid. It is like a matrix with each cell in the matrix contains a censor that senses the intensity of photon.
 
-![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/Image-Formation-on-Camera/ccd_sensor_array.jpg?raw=true)
+![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/7-Image-Formation-on-Camera/ccd_sensor_array.jpg?raw=true)
 
 Like analog cameras , in the case of digital too , when light falls on the object , the light reflects back after striking the object and allowed to enter inside the camera.
 
