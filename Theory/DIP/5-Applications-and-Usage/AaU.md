@@ -8,7 +8,7 @@ Electromagnetic waves can be thought of as stream of particles, where each parti
 
 The electromagnetic spectrum according to the energy of photon is shown below.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/5-Applications-and-Usage/electro_spectrum.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/5-Applications-and-Usage/electro_spectrum.jpg?raw=true)
 
 In this electromagnetic spectrum, we are only able to see the visible spectrum.Visible spectrum mainly includes seven different colors that are commonly term as (VIBGOYR). VIBGOYR stands for violet , indigo , blue , green , orange , yellow and Red.
 
@@ -48,7 +48,7 @@ The key steps include in the analysis are
 4. Transmission and encoding
 The very first image that has been transmitted over the wire was from London to New York via a submarine cable. The picture that was sent is shown below.
 
-![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/5-Applications-and-Usage/transmission.jpg?raw=true)
+![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/5-Applications-and-Usage/transmission.jpg?raw=true)
 
 The picture that was sent took three hours to reach from one place to another.
 
@@ -60,7 +60,7 @@ Apart form the many challenges that a robot face today , one of the biggest chal
 6. Hurdle detection
 Hurdle detection is one of the common task that has been done through image processing, by identifying different type of objects in the image and then calculating the distance between robot and hurdles.
 
-![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/5-Applications-and-Usage/hurdle_detection.jpg?raw=true)
+![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/5-Applications-and-Usage/hurdle_detection.jpg?raw=true)
 
 7. Line follower robot
 Most of the robots today work by following the line and thus are called line follower robots. This help a robot to move on its path and perform some tasks. This has also been achieved through image processing.

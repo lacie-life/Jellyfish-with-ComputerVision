@@ -14,7 +14,7 @@ Another example is of sin wave which is shown in the figure below.
 
 Y = sin(x) where x is independent
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/3-SaS-Introduction/sinwave.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/3-SaS-Introduction/sinwave.jpg?raw=true)
 
 # Digital signals
 
@@ -42,7 +42,7 @@ Whenever a key is pressed from the keyboard, the appropriate electrical signal i
 
 A system is a defined by the type of input and output it deals with. Since we are dealing with signals, so in our case, our system would be a mathematical model, a piece of code/software, or a physical device, or a black box whose input is a signal and it performs some processing on that signal, and the output is a signal. The input is known as excitation and the output is known as response.
 
-![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/3-SaS-Introduction/system.jpg?raw=true)
+![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/3-SaS-Introduction/system.jpg?raw=true)
 
 In the above figure a system has been shown whose input and output both are signals but the input is an analog signal. And the output is an digital signal. It means our system is actually a conversion system that converts analog signals to digital signals.
 
@@ -56,7 +56,7 @@ Since there are lot of concepts related to this analog to digital conversion and
 ### Sampling
 Sampling as its name suggests can be defined as take samples. Take samples of a digital signal over x axis. Sampling is done on an independent variable. In case of this mathematical equation:
 
-![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/3-SaS-Introduction/sampling.jpg?raw=true)
+![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/3-SaS-Introduction/sampling.jpg?raw=true)
 
 Sampling is done on the x variable. We can also say that the conversion of x axis (infinite values) to digital is done under sampling.
 
@@ -73,7 +73,7 @@ These are the two basics steps that are involved while converting an analog sign
 
 The quantization of a signal has been shown in the figure below.
 
-![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/3-SaS-Introduction/quantization.jpg?raw=true)
+![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/3-SaS-Introduction/quantization.jpg?raw=true)
 
 ## Why do we need to convert an analog signal to digital signal.
 The first and obvious reason is that digital image processing deals with digital images, that are digital signals. So when ever the image is captured, it is converted into digital format and then it is processed.
@@ -86,11 +86,11 @@ The second and important reason is, that in order to perform operations on an an
 
 The type of systems whose input and output both are continuous signals or analog signals are called continuous systems.
 
-![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/3-SaS-Introduction/continuous_systems.jpg?raw=true)
+![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/3-SaS-Introduction/continuous_systems.jpg?raw=true)
 
 ## Discrete systems
 
 The type of systems whose input and output both are discrete signals or digital signals are called digital systems.
 
-![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/3-SaS-Introduction/discrete_signals.jpg?raw=true)
+![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/3-SaS-Introduction/discrete_signals.jpg?raw=true)
 

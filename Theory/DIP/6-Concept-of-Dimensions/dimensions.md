@@ -2,7 +2,7 @@
 
 We will look at this example in order to understand the concept of dimension.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/dimensions.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/dimensions.jpg?raw=true)
 
 Consider you have a friend who lives on moon, and he wants to send you a gift on your birthday present. He ask you about your residence on earth. The only problem is that the courier service on moon doesnot understand the alphabetical address, rather it only understand the numerical co-ordinates. So how do you send him your position on earth?
 
@@ -20,7 +20,7 @@ Since we are studying this concept in reference to the digital image processing,
 
 So if we live in the 3d world, means a 3 dimensional world, then what are the dimensions of an image that we capture. An image is a two dimensional, thats why we also define an image as a 2 dimensional signal. An image has only height and width. An image does not have depth. Just have a look at this image below.
 
-![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/one_dimensions.jpg?raw=true)
+![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/one_dimensions.jpg?raw=true)
 
 If you would look at the above figure, it shows that it has only two axis which are the height and width axis. You cannot perceive depth from this image. Thats why we say that an image is two dimensional signal. But our eye is able to perceive three dimensional objects, but this would be more explained in the next tutorial of how the camera works, and image is perceived.
 
@@ -43,7 +43,7 @@ Where x is an independent variable. Since it is a one dimension signal , so that
 
 Pictorial representation of a one dimensional signal is given below:
 
-![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/1d_signal.jpg?raw=true)
+![Figure 3](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/1d_signal.jpg?raw=true)
 
 The above figure shows a one dimensional signal.
 
@@ -51,7 +51,7 @@ Now this lead to another question, which is, even though it is a one dimensional
 
 Perhaps you can understand the concept of one dimension more better by looking at the figure below.
 
-![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/one_dimension_points.jpg?raw=true)
+![Figure 4](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/one_dimension_points.jpg?raw=true)
 
 Now refer back to our initial discussion on dimension, Consider the above figure a real line with positive numbers from one point to the other. Now if we have to explain the location of any point on this line, we just need only one number, which means only one dimension.
 
@@ -59,7 +59,7 @@ Now refer back to our initial discussion on dimension, Consider the above figure
 
 The common example of a two dimensional signal is an image, which has already been discussed above.
 
-![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/two_dimension.jpg?raw=true)
+![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/two_dimension.jpg?raw=true)
 
 As we have already seen that an image is two dimensional signal, i-e: it has two dimensions. It can be mathematically represented as:
 
@@ -67,7 +67,7 @@ F (x , y) = Image
 
 Where x and y are two variables. The concept of two dimension can also be explained in terms of mathematics as:
 
-![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/two_d_points.jpg?raw=true)
+![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/two_d_points.jpg?raw=true)
 
 Now in the above figure, label the four corners of the square as A,B,C and D respectively. If we call, one line segment in the figure AB and the other CD, then we can see that these two parallel segments join up and make a square. Each line segment corresponds to one dimension, so these two line segments correspond to 2 dimensions.
 
@@ -81,7 +81,7 @@ F(x,y,z) = animated character.
 
 Another axis or dimension Z is involved in a three dimension, that gives the illusion of depth. In a Cartesian co-ordinate system it can be viewed as:
 
-![Figure 7](https://github.com/lacie-life/Image-Processing/blob/master/Theory/Something/6-Concept-of-Dimensions/3_dimension_signal.jpg?raw=true)
+![Figure 7](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/6-Concept-of-Dimensions/3_dimension_signal.jpg?raw=true)
 
 4. 4 dimension signal
 In a four dimensional signal, four dimensions are involved. The first three are the same as of three dimensional signal which are: (X, Y, Z), and the fourth one which is added to them is T(time). Time is often referred to as temporal dimension which is a way to measure change. Mathematically a four d signal can be stated as:
