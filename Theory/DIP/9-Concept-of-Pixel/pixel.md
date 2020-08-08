@@ -50,7 +50,9 @@ We will now look at a very unique value 0. The value 0 means absence of light. I
 Have a look at this image matrix
 
 |0|0|0|
+-------
 |0|0|0|
+-------
 |0|0|0|
 
 Now this image matrix has all filled up with 0. All the pixels have a value of 0. If we were to calculate the total number of pixels form this matrix, this is how we are going to do it.
