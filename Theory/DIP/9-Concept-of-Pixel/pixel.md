@@ -10,7 +10,7 @@ A pixel is also known as PEL. You can have more understanding of the pixel from 
 
 In the above picture, there may be thousands of pixels, that together make up this image. We will zoom that image to the extent that we are able to see some pixels division. It is shown in the image below.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/9-Concept-of-Pixel/einstein.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/9-Concept-of-Pixel/einstein .jpg?raw=true)
 
 ![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/9-Concept-of-Pixel/pixel.jpg?raw=true)
 
@@ -48,7 +48,7 @@ As it has already been define in the beginning of this tutorial, that each pixel
 We will now look at a very unique value 0. The value 0 means absence of light. It means that 0 denotes dark, and it further means that when ever a pixel has a value of 0, it means at that point, black color would be formed.
 
 Have a look at this image matrix
-|Value|
+|Value|||
 |--|--|--|
 |0|0|0|
 |0|0|0|
