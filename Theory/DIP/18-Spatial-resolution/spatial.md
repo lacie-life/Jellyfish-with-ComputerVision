@@ -20,7 +20,7 @@ For example:
 
 You cannot compare these two images to see the clarity of the image.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/18-Spatial-resolution/einstein(2).jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/18-Spatial-resolution/einstein.jpg?raw=true)
 
 ![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/18-Spatial-resolution/einsteinzoomed.jpg?raw=true)
 
