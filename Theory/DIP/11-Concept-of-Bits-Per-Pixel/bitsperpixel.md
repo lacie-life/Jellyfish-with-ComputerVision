@@ -24,7 +24,7 @@ How many two bits combinations can be made.
 
 If we devise a formula for the calculation of total number of combinations that can be made from bit, it would be like this.
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/11-Concept-of-Bits-Per-Pixel/bitsperpixel.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/11-Concept-of-Bits-Per-Pixel/bitsperpixels.jpg?raw=true)
 
 Where bpp denotes bits per pixel. Put 1 in the formula you get 2, put 2 in the formula, you get 4. It grows exponentially.
 
