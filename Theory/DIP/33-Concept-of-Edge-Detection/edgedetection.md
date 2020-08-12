@@ -50,11 +50,11 @@ The sharpen image is shown below.
 
 ### Original Image
 
-![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Edge-Detection/edgedetection1.jpg?raw=true)
+![Figure 1](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/edgedetection1.jpg?raw=true)
 
 ### Sharpen Image
 
-![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Edge-Detection/edgedetection2.jpg?raw=true)
+![Figure 2](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/edgedetection2.jpg?raw=true)
 
 
 
