@@ -46,7 +46,7 @@ May be the results are not much clear. Let’s increase the blurring. The blurri
 
 |Original Image|Blurred Image|
 |--------------|--------------|
-|![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring4.jpg?raw=true)|![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring5.jpg?raw=true)|
+|![Figure 5](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred4.jpg?raw=true)|![Figure 6](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred5.jpg?raw=true)|
 
 
 Same way if we increase the mask, the blurring would be more and the results are shown below.
@@ -55,19 +55,19 @@ Same way if we increase the mask, the blurring would be more and the results are
 
 |Original Image|Blurred Image|
 |--------------|--------------|
-|![Figure 7](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring6.jpg?raw=true)|![Figure 8](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring7.jpg?raw=true)|
+|![Figure 7](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred6.jpg?raw=true)|![Figure 8](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred7.jpg?raw=true)|
 
 ### The result of a mask of 9x9 on an image is shown below.
 
 |Original Image|Blurred Image|
 |--------------|--------------|
-|![Figure 9](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring8.jpg?raw=true)|![Figure 10](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring9.jpg?raw=true)|
+|![Figure 9](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred8.jpg?raw=true)|![Figure 10](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred9.jpg?raw=true)|
 
 ### The result of a mask of 11x11 on an image is shown below.
 
 |Original Image|Blurred Image|
 |--------------|--------------|
-|![Figure 11](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring10.jpg?raw=true)|![Figure 12](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurring10.jpg?raw=true)|
+|![Figure 11](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred10.jpg?raw=true)|![Figure 12](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/32-Concept-of-Blurring/blurred10.jpg?raw=true)|
 
 ## Weighted average filter
 In weighted average filter, we gave more weight to the center value. Due to which the contribution of center becomes more then the rest of the values. Due to weighted average filtering, we can actually control the blurring.
