@@ -273,41 +273,41 @@ As you can see that all the directions are covered and each mask will give you t
 
 ## Sample Picture
 
-![Figure 31](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch1.jpg?raw=true)
+![Figure 31](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch1.jpg?raw=true)
 
 Now we will apply all the above filters on this image and we get the following result.
 
 ### North Direction Edges
 
-![Figure 32](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch2.jpg?raw=true)
+![Figure 32](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch2.jpg?raw=true)
 
 ### North West Direction Edges
 
-![Figure 33](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch3.jpg?raw=true)
+![Figure 33](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch3.jpg?raw=true)
 
 ### West Direction Edges
 
-![Figure 34](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch4.jpg?raw=true)
+![Figure 34](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch4.jpg?raw=true)
 
 ### South West Direction Edges
 
-![Figure 35](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch5.jpg?raw=true)
+![Figure 35](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch5.jpg?raw=true)
 
 ### South Direction Edges
 
-![Figure 36](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch6.jpg?raw=true)
+![Figure 36](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch6.jpg?raw=true)
 
 ### South East Direction Edges
 
-![Figure 37](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch7.jpg?raw=true)
+![Figure 37](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch7.jpg?raw=true)
 
 ### East Direction Edges
 
-![Figure 38](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch8.jpg?raw=true)
+![Figure 38](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch8.jpg?raw=true)
 
 ### North East Direction Edges
 
-![Figure 39](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/krisch9.jpg?raw=true)
+![Figure 39](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/kirsch9.jpg?raw=true)
 
 As you can see that by applying all the above masks you will get edges in all the direction. Result is also depends on the image. Suppose there is an image, which do not have any North East direction edges so then that mask will be ineffective.
 
