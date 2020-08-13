@@ -175,3 +175,70 @@ If you can compare the result of this mask with of the Prewitt vertical mask, it
 
 ------------------------------------------------------------------------------------------------------------------------
 
+# Robinson Compass Mask
+
+Robinson compass masks are another type of derrivate mask which is used for edge detection. This operator is also known as direction mask. In this operator we take one mask and rotate it in all the 8 compass major directions that are following:
+
++ North
++ North West
++ West
++ South West
++ South
++ South East
++ East
++ North East
+There is no fixed mask. You can take any mask and you have to rotate it to find edges in all the above mentioned directions. All the masks are rotated on the bases of direction of zero columns.
+
+For example let’s see the following mask which is in North Direction and then rotate it to make all the direction masks.
+
+![Figure 14](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/6.PNG?raw=true)
+
+![Figure 15](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/7.PNG?raw=true)
+
+![Figure 16](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/8.PNG?raw=true)
+
+![Figure 17](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/9.PNG?raw=true)
+
+As you can see that all the directions are covered on the basis of zeros direction. Each mask will give you the edges on its direction. Now let’s see the result of the entire above masks. Suppose we have a sample picture from which we have to find all the edges. Here is our sample picture:
+
+## Sample Picture
+
+![Figure 18](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson1.jpg?raw=true)
+
+Now we will apply all the above filters on this image and we get the following result.
+
+### North Direction Edges
+
+![Figure 19](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson2.jpg?raw=true)
+
+### North West Direction Edges
+
+![Figure 20](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson3.jpg?raw=true)
+
+### West Direction Edges
+
+![Figure 21](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson4.jpg?raw=true)
+
+### South West Direction Edges
+
+![Figure 22](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson5.jpg?raw=true)
+
+### South Direction Edges
+
+![Figure 23](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson6.jpg?raw=true)
+
+### South East Direction Edges
+
+![Figure 24](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson7.jpg?raw=true)
+
+### East Direction Edges
+
+![Figure 25](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson8.jpg?raw=true)
+
+### North East Direction Edges
+
+![Figure 26](https://github.com/lacie-life/Image-Processing/blob/master/Theory/DIP/33-Concept-of-Edge-Detection/robinson9.jpg?raw=true)
+
+As you can see that by applying all the above masks you will get edges in all the direction. Result is also depends on the image. Suppose there is an image, which do not have any North East direction edges so then that mask will be ineffective.
+
+---------------------------------------------------------------------------------------------------------------
