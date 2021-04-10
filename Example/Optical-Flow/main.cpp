@@ -38,6 +38,7 @@ int main(int argc, char **argv)
     // Create some random colors
     vector<Scalar> colors;
     RNG rng;
+
     for(int i = 0; i < 100; i++)
     {
         int r = rng.uniform(0, 256);
