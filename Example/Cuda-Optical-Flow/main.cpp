@@ -313,16 +313,16 @@ void calculate_optical_flow(string videoFileName, string device)
     cout << "Elapsed time" << std::endl;
     for (auto const& timer : timers)
     {
-        cout << "- " << timer.first << " : " << accumulate(timer.second.begin(), timer.second.end(), 0.0) << " seconds"<< endl;
+        //cout << "- " << timer.first << " : " << cv::accumulate(timer.second.begin(), timer.second.end(), 0.0) << " seconds"<< endl;
     }
 
     // calculate frames per second
-    cout << "Default video FPS : "  << fps << endl;
-    float optical_flow_fps  = (num_frames - 1) / accumulate(timers["optical flow"].begin(),  timers["optical flow"].end(),  0.0);
-    cout << "Optical flow FPS : "   << optical_flow_fps  << endl;
+    //cout << "Default video FPS : "  << fps << endl;
+    //float optical_flow_fps  = (num_frames - 1) / cv::accumulate(timers["optical flow"].begin(),  timers["optical flow"].end(),  0.0);
+    //cout << "Optical flow FPS : "   << optical_flow_fps  << endl;
 
-    float full_pipeline_fps = (num_frames - 1) / accumulate(timers["full pipeline"].begin(), timers["full pipeline"].end(), 0.0);
-    cout << "Full pipeline FPS : "  << full_pipeline_fps << endl;
+    //float full_pipeline_fps = (num_frames - 1) / cv::accumulate(timers["full pipeline"].begin(), timers["full pipeline"].end(), 0.0);
+    //cout << "Full pipeline FPS : "  << full_pipeline_fps << endl;
 }
 
 
