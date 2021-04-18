@@ -111,10 +111,10 @@ void convert_to_gray(const cv::Mat& input, cv::Mat& output) {
 }
 
 int main() {
-    std::string imagePath = "../data/image.jpg";
+    std::string imagePath = "../images/test.jpg";
 
     // Read input image from the disk
-    cv::Mat input = cv::imread(imagePath,CV_LOAD_IMAGE_COLOR);
+    cv::Mat input = cv::imread(imagePath,cv::IMREAD_COLOR);
 
     if(input.empty()){
         std::cout<<"Image Not Found!"<<std::endl;

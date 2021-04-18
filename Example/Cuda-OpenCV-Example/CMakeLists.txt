@@ -29,7 +29,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 # find source and header files.
 set(hello "hello.cu")
-set(add "add.cu")
+#set(add "add.cu")
 set(bgrtogray "bgrtogray.cu")
 set(invert_1 "invert_1.cu")
 set(invert_2 "invert_2.cu")
@@ -50,7 +50,7 @@ set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-std=c++11)
 
 # SPECIFY TARGETS
 cuda_add_executable(hello ${hello})
-cuda_add_executable(add ${add})
+#cuda_add_executable(add ${add})
 cuda_add_executable(bgrtogray ${bgrtogray})
 cuda_add_executable(invert_1 ${invert_1})
 cuda_add_executable(invert_2 ${invert_2})
