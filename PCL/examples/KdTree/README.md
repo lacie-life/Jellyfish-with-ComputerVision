@@ -7,3 +7,5 @@ A k-d tree, or k-dimensional tree, is a data structure used in computer science 
 
 ## Refer:
 [bla bla](https://pcl.readthedocs.io/projects/tutorials/en/latest/kdtree_search.html#kdtree-search)
+
+[Wiki](https://en.wikipedia.org/wiki/K-d_tree)
