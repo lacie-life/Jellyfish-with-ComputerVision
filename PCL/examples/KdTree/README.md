@@ -6,4 +6,4 @@ A k-d tree, or k-dimensional tree, is a data structure used in computer science 
 ![This is a demonstration of how the Nearest-Neighbor search works.](https://github.com/lacie-life/dip-learning/blob/master/PCL/examples/KdTree/images/nn_kdtree.gif?raw=true)
 
 ## Refer:
-![bla bla](https://pcl.readthedocs.io/projects/tutorials/en/latest/kdtree_search.html#kdtree-search)
+[bla bla](https://pcl.readthedocs.io/projects/tutorials/en/latest/kdtree_search.html#kdtree-search)
