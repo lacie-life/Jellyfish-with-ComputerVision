@@ -3,7 +3,7 @@ A k-d tree, or k-dimensional tree, is a data structure used in computer science 
 
 ![This is an example of a 2-dimensional k-d tree](https://github.com/lacie-life/dip-learning/blob/master/PCL/examples/KdTree/images/2d_kdtree.png?raw=true)
 
-![This is a demonstration of how the Nearest-Neighbor search works.](https://github.com/lacie-life/dip-learning/master/PCL/examples/KdTree/images/nn_kdtree.gif?raw=true)
+![This is a demonstration of how the Nearest-Neighbor search works.](https://github.com/lacie-life/dip-learning/blob/master/PCL/examples/KdTree/images/nn_kdtree.gif?raw=true)
 
 ## Refer:
 ![bla bla](https://pcl.readthedocs.io/projects/tutorials/en/latest/kdtree_search.html#kdtree-search)
