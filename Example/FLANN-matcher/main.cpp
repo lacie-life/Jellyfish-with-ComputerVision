@@ -17,7 +17,7 @@
 #include <opencv2/features2d.hpp>
 #include <vector>
 
-#define KNN 1
+#define KNN 0
 
 using namespace cv;
 using namespace cuda;
@@ -70,7 +70,7 @@ int main(){
     d_orb->convert(d_keypointsR, keypoints_2);
     d_descriptorsR.convertTo(d_descriptorsR_32F, CV_32F);
 
-#if KNN
+#if KNN == 1
     std::vector<std::vector<DMatch>> knnMatches;
     std::vector<DMatch> good_matches;
 
@@ -96,7 +96,7 @@ int main(){
 
     std::cout << "KNN time: " << time << " ms" << std::endl;
 
-#elif
+#elif KNN == 0
     std::vector<DMatch> matches;
     std::vector<DMatch> good_matches;
 
