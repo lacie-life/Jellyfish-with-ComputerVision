@@ -58,7 +58,7 @@ sudo apt-get install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 
 [Link](https://developer.nvidia.com/cuda-10.2-download-archive)
 
-## Downdload OPenCV 4.2.0
+## Download OpenCV 4.2.0
 
 cd ~
 
