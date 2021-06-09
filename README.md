@@ -113,3 +113,4 @@ sudo ldconfig
 
 # PLC data
 http://kos.informatik.uni-osnabrueck.de/3Dscans/
+https://rgbd-dataset.cs.washington.edu/dataset/rgbd-dataset_pcd_ascii/
