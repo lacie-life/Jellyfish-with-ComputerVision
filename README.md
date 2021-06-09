@@ -111,3 +111,5 @@ sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 
 sudo ldconfig
 
+# PLC data
+http://kos.informatik.uni-osnabrueck.de/3Dscans/
