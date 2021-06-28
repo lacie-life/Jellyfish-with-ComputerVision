@@ -20,6 +20,8 @@
 
 
 #include <sl/Camera.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui.hpp>      //for imshow
 
 using namespace std;
 using namespace sl;
@@ -44,7 +46,7 @@ int main(int argc, char **argv) {
     // Capture 50 frames and stop
     int i = 0;
     sl::Mat image;
-    while (i < 50) {
+    while (true) {
         // Grab an image
         returned_state = zed.grab();
         // A new image is available if grab() returns ERROR_CODE::SUCCESS
@@ -52,10 +54,17 @@ int main(int argc, char **argv) {
 
             // Get the left image
             zed.retrieveImage(image, VIEW::LEFT);
-            
+
             // Display the image resolution and its acquisition timestamp
+            cv::Mat cvImage = cv::Mat((int) image.getHeight(), (int) image.getWidth(), CV_8UC4, image.getPtr<sl::uchar1>(sl::MEM::CPU));
+            cv::imshow("ZED", cvImage);
+
             cout<<"Image resolution: "<< image.getWidth()<<"x"<<image.getHeight() <<" || Image timestamp: "<<image.timestamp.data_ns<<endl;
             i++;
+
+            char c=(char)cv::waitKey(25);
+            if(c==27)
+                break;
         }
     }
 

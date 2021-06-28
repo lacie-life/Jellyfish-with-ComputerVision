@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ZED_Tutorial_7"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\tutorial 1 - hello ZED\;CMake Files\tutorial 1 - hello ZED\cpp\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\..\usr\local\zed\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\;CMake Files\tutorial 2 - image capture\;CMake Files\tutorial 2 - image capture\cpp\;CMake Files\tutorial 3 - depth sensing\;CMake Files\tutorial 3 - depth sensing\cpp\;CMake Files\tutorial 4 - positional tracking\;CMake Files\tutorial 4 - positional tracking\cpp\;CMake Files\tutorial 5 - spatial mapping\;CMake Files\tutorial 5 - spatial mapping\cpp\;CMake Files\tutorial 6 - object detection\;CMake Files\tutorial 6 - object detection\cpp\;CMake Files\tutorial 7 - sensor data\;CMake Files\tutorial 7 - sensor data\cpp\;CMake Files\tutorial 8 - body tracking\;CMake Files\tutorial 8 - body tracking\cpp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial 7 - sensor data/cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ZED_Tutorial_7">
+				<Option output="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial 7 - sensor data/cpp/ZED_Tutorial_7" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="."/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/usr/local/zed/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 ZED_Tutorial_7"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ZED_Tutorial_7/fast">
+				<Option output="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial 7 - sensor data/cpp/ZED_Tutorial_7" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="."/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/usr/local/zed/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 ZED_Tutorial_7/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/cmake-build-debug/tutorial\ 7\ -\ sensor\ data/cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 7 - sensor data/cpp/main.cpp">
+			<Option target="ZED_Tutorial_7"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 1 - hello ZED/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 1 - hello ZED\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/../../../../../../../usr/local/zed/zed-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\zed\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/../../../../../../../usr/local/zed/zed-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\zed\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/../../../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/../../../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/../../../../../../../usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/../../../../../../../usr/local/lib/cmake/opencv4/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 2 - image capture/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 2 - image capture\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 3 - depth sensing/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 3 - depth sensing\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 4 - positional tracking/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 4 - positional tracking\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 5 - spatial mapping/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 5 - spatial mapping\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 6 - object detection/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 6 - object detection\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 7 - sensor data/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 7 - sensor data\cpp\"/>
+		</Unit>
+		<Unit filename="/home/lacie/Github/dip-learning/Camera/ZED2/tutorials/tutorial 8 - body tracking/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tutorial 8 - body tracking\cpp\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
