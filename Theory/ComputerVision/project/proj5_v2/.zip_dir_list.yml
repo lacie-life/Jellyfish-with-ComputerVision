@@ -1,0 +1,7 @@
+required_directories:
+  - proj5_code
+required_files:
+optional_directories:
+  - additional_data
+optional_files:
+  - README.txt

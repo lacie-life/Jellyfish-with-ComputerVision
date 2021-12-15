@@ -1,0 +1,18 @@
+name: proj5
+channels:
+- defaults
+- pytorch
+- conda-forge
+- sepandhaghighi
+dependencies:
+- jupyter
+- matplotlib
+- pip
+- pytest
+- python=3.6
+- pytorch-cpu
+- torchvision-cpu=0.2
+- pyyaml
+- scipy
+- opencv
+- pycm

@@ -1,0 +1,7 @@
+required_directories:
+  - proj3_code
+  - data
+required_files:
+  - README.md
+optional_directories:
+  - additional_data

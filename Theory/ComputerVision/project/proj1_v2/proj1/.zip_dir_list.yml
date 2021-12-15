@@ -1,0 +1,8 @@
+required_directories:
+  - proj1_code
+required_files:
+  - cutoff_frequencies.txt
+optional_directories:
+  - additional_data
+optional_files:
+  - README.txt

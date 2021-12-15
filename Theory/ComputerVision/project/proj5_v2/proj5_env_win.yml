@@ -1,0 +1,19 @@
+name: proj5
+channels:
+- pytorch
+- menpo
+- defaults
+- sepandhaghighi
+dependencies:
+- jupyter
+- matplotlib
+- python=3.6
+- scipy
+- opencv
+- pytorch-cpu
+- torchvision-cpu=0.2
+- pip
+- pip:
+  - visdom
+- pycm
+- pyyaml

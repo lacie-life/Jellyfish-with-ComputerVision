@@ -1,0 +1,17 @@
+name: proj4
+channels:
+- defaults
+- pytorch
+- conda-forge
+dependencies:
+- jupyter
+- matplotlib
+- pip
+- pytest
+- python=3.6
+- pytorch
+- torchvision=0.2
+- pyyaml
+- scipy
+- opencv
+
