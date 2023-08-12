@@ -2,7 +2,7 @@
 
 [Book](https://www.packtpub.com/product/modern-computer-vision-with-pytorch/9781839213472?utm_source=github&utm_medium=repository&utm_campaign=9781839213472)
 
-## 01-ANN
+## 01- Artificial Neural Networks
 
 <b> Basic Algorithm Implementation </b>
 
@@ -71,3 +71,25 @@
 [The impact of dropout](02-Pytorch/Impact_of_dropout.ipynb)
 
 [The impact of regularization](02-Pytorch/Impact_of_regularization.ipynb)
+
+## 03-Convolutional Neural Networks
+
+[Issues with image translation](03-CNN/Issues_with_image_translation.ipynb)
+
+[Build simple CNN model](03-CNN/CNN_working_details.ipynb)
+
+[CNN and FashionMNIST](03-CNN/CNN_on_FashionMNIST.ipynb)
+
+[Image augmentation](03-CNN/Image_augmentation.ipynb)
+
+[Image augmentation and batch](03-CNN/Time_comparison_of_augmentation_scenario.ipynb)
+
+[Data augmentation for image translation](03-CNN/Data_augmentation_with_CNN.ipynb)
+
+[Visualizing the filters](03-CNN/Visualizing_the_filters_learning.ipynb)
+
+[Cat vs Dog Agiannnnnnn](03-CNN/Cats_vs_Dogs.ipynb)
+
+
+
+
