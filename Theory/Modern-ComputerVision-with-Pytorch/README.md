@@ -44,10 +44,30 @@
 
 <b> Building a Deep Neural Network with PyTorch </b>
 
+[Converting images into structured arrays and scalars - Grayscale](02-Pytorch/Inspecting_grayscale_images.ipynb)
 
+[Converting images into structured arrays and scalars - Color](02-Pytorch/Inspecting_color_images.ipynb)
 
+[Preparing data](02-Pytorch/Preparing_data.ipynb)
 
+[Traning a neural network](Steps_to_build_a_neural_network_on_FashionMNIST.ipynb)
 
+[Scaling a dataset to improve model accuracy](02-Pytorch/Scaling_the_dataset.ipynb)
 
+[The impact of the batch size](02-Pytorch/Varying_batch_size.ipynb)
 
+[The impact of the loss optimizer](02-Pytorch/Varying_loss_optimizer.ipynb)
 
+[The impact of the learning rate on scaled dataset](02-Pytorch/Varying_learning_rate_on_scaled_data.ipynb)
+
+[The impact of the learning rate on non scaled dataset](02-Pytorch/Varying_learning_rate_on_non_scaled_data.ipynb)
+
+[Learning rate annealing](02-Pytorch/Learning_rate_annealing.ipynb)
+
+[The impact of building a deeper neural network](02-Pytorch/Impact_of_building_a_deeper_neural_network.ipynb)
+
+[The impact of batch normalization](02-Pytorch/Batch_normalization.ipynb)
+
+[The impact of dropout](02-Pytorch/Impact_of_dropout.ipynb)
+
+[The impact of regularization](02-Pytorch/Impact_of_regularization.ipynb)
