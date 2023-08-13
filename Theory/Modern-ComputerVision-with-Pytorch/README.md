@@ -90,6 +90,42 @@
 
 [Cat vs Dog Agiannnnnnn](03-CNN/Cats_vs_Dogs.ipynb)
 
+## 04-Transfer Learning for Image Classification
 
+<b> High-level flow of transfer learning </b>
 
+1. Normalize the input images, normalized by the <b> same mean and standard deviation </b> that was used during the training of the pre-trained model.
 
+2. Fetch the pre-trained model's architecture. Fetch the weights for this architecture that arose as a result of being trained on a large dataset.
+
+3. Discard the last few layers of the pre-trained model.
+
+4. Connect the truncated pre-trained model to a freshly initialized layer (or layers) where weights are randomly initialized. Ensure that the output of the last layer has as many neurons as the classes/outputs we would want to predict
+
+5. Ensure that the weights of the pre-trained model are not trainable (in other words, frozen/not updated during backpropagation), but that the weights of the newly initialized layer and the weights connecting it to the outpu layer are trainable.
+
+We do not train the weights of the pre-trained model, as we assume those weights are already well learned for the task, and hence leverage the learning from a large model. In summary, we only learn the newly initialized layers for our small dataset.
+
+6. Update the trainable parameters over increasing epochs to fit a model.
+
+<b> VGG16 Architecture </b>
+
+[VGG16 Architecture](04-Transfer_Learning/VGG_architecture.ipynb)
+
+[Transfer learning with VGG16](04-Transfer_Learning/Implementing_VGG16_for_image_classification.ipynb)
+
+<b> ResNet Architecture </b>
+
+[ResNet Architecture](04-Transfer_Learning/ResNet_block_architecture.ipynb)
+
+[Transfer learning with ResNet](04-Transfer_Learning/Implementing_ResNet18_for_image_classification.ipynb)
+
+<b> Example </b>
+
+[Facial keypoint detection](04-Transfer_Learning/Facial_keypoints_detection.ipynb)
+
+[2D and 3D facial keypoint detection](04-Transfer_Learning/2D_and_3D_facial_keypoints.ipynb)
+
+[Age and gender prediction](04-Transfer_Learning/age_gender_prediction.ipynb)
+
+[Torch snippets example](04-Transfer_Learning/Torch_snippets.ipynb)
