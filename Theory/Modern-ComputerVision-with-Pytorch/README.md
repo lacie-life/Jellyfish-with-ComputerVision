@@ -129,3 +129,29 @@ We do not train the weights of the pre-trained model, as we assume those weights
 [Age and gender prediction](04-Transfer_Learning/age_gender_prediction.ipynb)
 
 [Torch snippets example](04-Transfer_Learning/Torch_snippets.ipynb)
+
+## 05- Practical Aspects of Image Classification
+
+<b> Generating CAMs </b>
+
+[Generating CAMs](05-Practical-Aspects-of-Image-Classification/Generating_CAMs.ipynb)
+
+<b> The impact of data augmentation and batch normalization </b>
+
+[Code](05-Practical-Aspects-of-Image-Classification/Road_sign_detection.ipynb)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
