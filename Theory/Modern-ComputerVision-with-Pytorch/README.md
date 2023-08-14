@@ -166,5 +166,61 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 [SSD](06-Object_Detection/Training_SSD.ipynb)
 
+## 07-Image Segmentation
+
+<b> U-Net Note </b>
+
+- Unet Architecture
+
+![Unet Architecture](./07-Image-Segmentation/imgs/unet0.png)
+
+- Performing upscaling
+
+![Performing upscaling](./07-Image-Segmentation/imgs/unet1.png)
+
+In the preceding example, we took an input array of shape 3 x 3 (Input array), applied a stride of 2 where we distributed the input values to accommodate the stride (Input array adjusted for stride), padded the array with zeros (Input array adjusted for stride and padding), and convolved the padded input with a filter (Filter/Kernel) to fetch the output array.
+
+[Code](07-Image-Segmentation/Senmantic_Segmentation_with_U_Net.ipynb)
+
+<b> Mask R-CNN </b>
+
+- Mask R-CNN architecture
+
+![Mask R-CNN architecture](./07-Image-Segmentation/imgs/mask0.png)
+
+![Mask R-CNN architecture](./07-Image-Segmentation/imgs/mask1.png)
+
+- RoI Align
+
+To understand how RoI Align works, let's go through a simple example. Here, we are trying to convert the following region (which is represented in dashed lines) into a 2 x 2 shape:
+
+![RoI Align](./07-Image-Segmentation/imgs/mask2.png)
+
+ - Step 1: First, divide the region into an equal 2 x 2 shape:
+
+![RoI Align](./07-Image-Segmentation/imgs/mask3.png)
+
+ - Step 2: Define four points that are equally spaced within each of the 2 x 2 cells:
+
+![RoI Align](./07-Image-Segmentation/imgs/mask4.png)
+
+ - Step 3: Calculate the weighted average value of each point based on its distance to the nearest known value:
+
+![RoI Align](./07-Image-Segmentation/imgs/mask5.png)
+
+ - Step 4: Repeat the preceding interpolation step for all four points in a cell:
+
+![RoI Align](./07-Image-Segmentation/imgs/mask6.png)
+
+ - Step 5: Perform average pooling across all four points within a cell:
+
+![RoI Align](./07-Image-Segmentation/imgs/mask7.png)
+
+- Mask head
+
+![RoI Align](./07-Image-Segmentation/imgs/mask8.png)
+
+
+[Code](07-Image-Segmentation/Instance_Segmentation.ipynb)
 
 
