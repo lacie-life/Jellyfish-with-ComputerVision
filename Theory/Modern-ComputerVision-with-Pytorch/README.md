@@ -2,7 +2,7 @@
 
 [Book](https://www.packtpub.com/product/modern-computer-vision-with-pytorch/9781839213472?utm_source=github&utm_medium=repository&utm_campaign=9781839213472)
 
-## 01- Artificial Neural Networks
+## 01-Artificial Neural Networks
 
 <b> Basic Algorithm Implementation </b>
 
@@ -130,7 +130,7 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 [Torch snippets example](04-Transfer_Learning/Torch_snippets.ipynb)
 
-## 05- Practical Aspects of Image Classification
+## 05-Practical Aspects of Image Classification
 
 <b> Generating CAMs </b>
 
@@ -140,10 +140,23 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 [Code](05-Practical-Aspects-of-Image-Classification/Road_sign_detection.ipynb)
 
+## 06-Object Detection
 
+<b> Region proposal </b>
 
+<i>Region proposal is a technique that helps in identifying islands of regions where the pixels are similar to one another. </i>
 
+[Selective search](06-Object_Detection/selective_Search.ipynb)
 
+[Intersection over Union](06-Object_Detection/Intersection_over_Union.ipynb)
+
+[nms and mAP](06-Object_Detection/nms_and_mAP.ipynb)
+
+<b> R-CNN </b>
+
+[R-CNN](06-Object_Detection/Training_RCNN.ipynb)
+
+[Fast R-CNN-based custom object detectors](06-Object_Detection/Training_Fast_RCNN.ipynb)
 
 
 
