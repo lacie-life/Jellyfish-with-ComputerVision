@@ -158,13 +158,13 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 [Fast R-CNN-based custom object detectors](06-Object_Detection/Training_Fast_RCNN.ipynb)
 
+[Components of modern object detection algorithms](06-Object_Detection/Components_of_modern_object_detection_algorithms.ipynb)
 
+[Faster R-CNN](06-Object_Detection/Training_Faster_RCNN.ipynb)
 
+[Yolo](06-Object_Detection/Training_YOLO.ipynb)
 
-
-
-
-
+[SSD](06-Object_Detection/Training_SSD.ipynb)
 
 
 
