@@ -263,3 +263,16 @@ the generator generates as fake.
 
 [Face generating using Conditional GAN](08-Image-Manipulation/Face_generation_using_Conditional_GAN.ipynb)
 
+[Pix2Pix](08-Image-Manipulation/pix2pix.ipynb)
+
+[CycleGAN](08-Image-Manipulation/CycleGAN.ipynb)
+
+[StyleGAN2](08-Image-Manipulation/Customzing_StyleGAN2.ipynb)
+
+[SRGAN](08-Image-Manipulation/Image_super_resolution_using_SRGAN.ipynb)
+
+
+
+
+
+
