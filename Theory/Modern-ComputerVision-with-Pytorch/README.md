@@ -224,3 +224,42 @@ To understand how RoI Align works, let's go through a simple example. Here, we a
 [Code](07-Image-Segmentation/Instance_Segmentation.ipynb)
 
 [Code - Multi-instance of multi class segmentation](07-Image-Segmentation/Multiple_instances_of_multiple_classes.ipynb)
+
+- Dilated convolution
+
+![Dilated convolution](./07-Image-Segmentation/imgs/mask9.png)
+
+## 08-Image Manipulation
+
+<b> Autoencoders and Image Manipulation </b>
+
+[Autoencoder](08-Image-Manipulation/simple_auto_encoder_with_different_latent_size.ipynb)
+
+[Convolutional autoencoders](08-Iamge-Manipulation/Convolutional_autoencoders.ipynb)
+
+[Variational autoencoders](08-Image-Manipulation/VAE.ipynb)
+
+[Adversarial attack on images](08-Image-Manipulation/adversarial_attack.ipynb)
+
+[Neural style transfer](08-Image-Manipulation/neural_style_transfer.ipynb)
+
+<b> Image Generation Using GANs </b>
+
+![GANs](./08-Image-Manipulation/imgs/auto4.png)
+
+1. Train the generator (and not the discriminator) to generate images such
+that the discriminator classifies the images as real.
+
+2. Train the discriminator (and not the generator) to classify the images that
+the generator generates as fake.
+
+3. Repeat the process until an equilibrium is achieved.
+
+- Example of GANs:
+
+[Handwritten digit generation using GANs](08-Image-Manipulation/Handwritten_digit_generation_using_GAN.ipynb)
+
+
+
+
+
