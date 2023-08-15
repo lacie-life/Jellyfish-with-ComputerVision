@@ -259,7 +259,7 @@ the generator generates as fake.
 
 [Handwritten digit generation using GANs](08-Image-Manipulation/Handwritten_digit_generation_using_GAN.ipynb)
 
+[Face generating using DCGAN](08-Image-Manipulation/Face_generation_using_DCGAN.ipynb)
 
-
-
+[Face generating using Conditional GAN](08-Image-Manipulation/Face_generation_using_Conditional_GAN.ipynb)
 
