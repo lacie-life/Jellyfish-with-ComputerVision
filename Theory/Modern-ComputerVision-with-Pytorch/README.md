@@ -271,8 +271,12 @@ the generator generates as fake.
 
 [SRGAN](08-Image-Manipulation/Image_super_resolution_using_SRGAN.ipynb)
 
+## 09-Combining Computer Vision with Other Techniques
 
+<b> Training with Minimal Data Points </b>
 
+[Zero-shot learning](09-Combining-Computer-Vision-with-Other-Techniques/Zero_shot_learning.ipynb)
 
+[Few-shot learning](09-Combining-Computer-Vision-with-Other-Techniques/Siamese_networks.ipynb)
 
 
