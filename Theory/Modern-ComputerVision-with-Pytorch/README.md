@@ -291,15 +291,21 @@ the generator generates as fake.
 
 [Obeject detection using DERT](09-Combining-Computer-Vision-with-Other-Techniques/NLP/Object_detection_with_DERT.ipynb)
 
+<b> Combining Computer Vision with Reinforcement Learning </b>
 
+[The basics of reinforcement learning]
 
+[The basics of reinforcement learning](09-Combining-Computer-Vision-with-Other-Techniques/RL/RL_basic.ipynb)
 
+[The Gym environment](09-Combining-Computer-Vision-with-Other-Techniques/RL/Gym_environment.ipynb)
 
+[Buiding Q-learning table](09-Combining-Computer-Vision-with-Other-Techniques/RL/Building_Q_table.ipynb)
 
+[Deep Q-learning - 1](09-Combining-Computer-Vision-with-Other-Techniques/RL/Deep_Q_Learning_Cart_Pole_balancing.ipynb)
 
+[Deep Q-learning - 2](09-Combining-Computer-Vision-with-Other-Techniques/RL/Pong_Deep_Q_Learning_with_Fixed_targets.ipynb)
 
-
-
+[Self Driving Car Example](09-Combining-Computer-Vision-with-Other-Techniques/RL/train-self-driving-agent.ipynb)
 
 
 
