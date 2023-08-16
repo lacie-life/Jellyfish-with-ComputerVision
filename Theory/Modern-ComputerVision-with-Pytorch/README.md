@@ -275,8 +275,14 @@ the generator generates as fake.
 
 <b> Training with Minimal Data Points </b>
 
-[Zero-shot learning](09-Combining-Computer-Vision-with-Other-Techniques/Zero_shot_learning.ipynb)
+[Zero-shot learning](09-Combining-Computer-Vision-with-Other-Techniques/Training-with-Minimal-Data-Points/Zero_shot_learning.ipynb)
 
-[Few-shot learning](09-Combining-Computer-Vision-with-Other-Techniques/Siamese_networks.ipynb)
+[Few-shot learning](09-Combining-Computer-Vision-with-Other-Techniques/Training-with-Minimal-Data-Points/Siamese_networks.ipynb)
+
+<b> Combining Computer Vision with NLP </b> 
+
+[NLP Common Architectures](09-Combining-Computer-Vision-with-Other-Techniques/NLP/NLP_Common_Architectures.ipynb)
+
+[Image captioning](09-Combining-Computer-Vision-with-Other-Techniques/NLP/Image_captioning.ipynb)
 
 
