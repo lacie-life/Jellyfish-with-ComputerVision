@@ -285,4 +285,21 @@ the generator generates as fake.
 
 [Image captioning](09-Combining-Computer-Vision-with-Other-Techniques/NLP/Image_captioning.ipynb)
 
+[Handwritten transcription](09-Combining-Computer-Vision-with-Other-Techniques/NLP/Handwritting_transcription.ipynb)
+
+[Transformer](09-Combining-Computer-Vision-with-Other-Techniques/NLP/transformer.ipynb)
+
+[Obeject detection using DERT](09-Combining-Computer-Vision-with-Other-Techniques/NLP/Object_detection_with_DERT.ipynb)
+
+
+
+
+
+
+
+
+
+
+
+
 
