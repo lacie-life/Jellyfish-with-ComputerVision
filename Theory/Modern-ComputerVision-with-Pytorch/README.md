@@ -6,6 +6,8 @@
 
 <b> Basic Algorithm Implementation </b>
 
+[Artificial Neural Network](01-ANN/ANN.ipynb)
+
 [Feedforward propagation](01-ANN/Feed_forward_propagation.ipynb)
 
 [Gradient descent](01-ANN/Gradient_descent.ipynb)
