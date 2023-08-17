@@ -46,15 +46,21 @@
 
 <b> Building a Deep Neural Network with PyTorch </b>
 
+- Images
+
 [Converting images into structured arrays and scalars - Grayscale](02-Pytorch/Inspecting_grayscale_images.ipynb)
 
 [Converting images into structured arrays and scalars - Color](02-Pytorch/Inspecting_color_images.ipynb)
+
+- FashionMNIST Example
 
 [Preparing data](02-Pytorch/Preparing_data.ipynb)
 
 [Traning a neural network](Steps_to_build_a_neural_network_on_FashionMNIST.ipynb)
 
 [Scaling a dataset to improve model accuracy](02-Pytorch/Scaling_the_dataset.ipynb)
+
+- Hyperparameter tuning
 
 [The impact of the batch size](02-Pytorch/Varying_batch_size.ipynb)
 
@@ -69,6 +75,12 @@
 [The impact of building a deeper neural network](02-Pytorch/Impact_of_building_a_deeper_neural_network.ipynb)
 
 [The impact of batch normalization](02-Pytorch/Batch_normalization.ipynb)
+
+- Overfiting
+
+<i> Having high accuracy on the training dataset and considerably
+lower accuracy on the validation dataset refers to the scenario of
+overfitting. </i>
 
 [The impact of dropout](02-Pytorch/Impact_of_dropout.ipynb)
 
