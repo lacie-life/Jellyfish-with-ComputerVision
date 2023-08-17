@@ -88,11 +88,17 @@ overfitting. </i>
 
 ## 03-Convolutional Neural Networks
 
+- CNN
+
 [Issues with image translation](03-CNN/Issues_with_image_translation.ipynb)
+
+[CNN Block](03-CNN/CNN_Block.ipynb)
 
 [Build simple CNN model](03-CNN/CNN_working_details.ipynb)
 
 [CNN and FashionMNIST](03-CNN/CNN_on_FashionMNIST.ipynb)
+
+- Data augmentation
 
 [Image augmentation](03-CNN/Image_augmentation.ipynb)
 
