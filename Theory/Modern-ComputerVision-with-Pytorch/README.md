@@ -122,9 +122,9 @@ overfitting. </i>
 
 4. Connect the truncated pre-trained model to a freshly initialized layer (or layers) where weights are randomly initialized. Ensure that the output of the last layer has as many neurons as the classes/outputs we would want to predict
 
-5. Ensure that the weights of the pre-trained model are not trainable (in other words, frozen/not updated during backpropagation), but that the weights of the newly initialized layer and the weights connecting it to the outpu layer are trainable.
+5. Ensure that the weights of the pre-trained model are not trainable (in other words, frozen/not updated during backpropagation), but that the weights of the newly initialized layer and the weights connecting it to the output layer are trainable:
 
-We do not train the weights of the pre-trained model, as we assume those weights are already well learned for the task, and hence leverage the learning from a large model. In summary, we only learn the newly initialized layers for our small dataset.
+- We do not train the weights of the pre-trained model, as we assume those weights are already well learned for the task, and hence leverage the learning from a large model. In summary, we only learn the newly initialized layers for our small dataset.
 
 6. Update the trainable parameters over increasing epochs to fit a model.
 
@@ -160,7 +160,13 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 [Code](05-Practical-Aspects-of-Image-Classification/Road_sign_detection.ipynb)
 
+<b> Practical aspects to take care of during model implementation </b>
+
+[Doc](05-Practical-Aspects-of-Image-Classification/Practical_aspects_to_take_care_of_during_model_implementation.ipynb)
+
 ## 06-Object Detection
+
+[Object detection](06-Object_Detection/Object_detection.ipynb)
 
 <b> Region proposal </b>
 
@@ -188,6 +194,16 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 ## 07-Image Segmentation
 
+The two aspects that we need to keep in mind while performing segmentation are as
+follows:
+
+- The shape and structure of the objects in the original image remain the
+same in the segmented output.
+
+- Leveraging a fully convolutional architecture (and not a structure where
+we flatten a certain layer) can help here since we are using one image as
+input and another as output.
+
 <b> U-Net Note </b>
 
 - Unet Architecture
@@ -198,13 +214,30 @@ We do not train the weights of the pre-trained model, as we assume those weights
 
 ![Performing upscaling](./07-Image-Segmentation/imgs/unet1.png)
 
-In the preceding example, we took an input array of shape 3 x 3 (Input array), applied a stride of 2 where we distributed the input values to accommodate the stride (Input array adjusted for stride), padded the array with zeros (Input array adjusted for stride and padding), and convolved the padded input with a filter (Filter/Kernel) to fetch the output array.
+In the preceding example, we took an input array of shape 3 x 3 (<b>Input array</b>), applied a stride of 2 where we distributed the input values to accommodate the stride (<b>Input array adjusted for stride</b>), padded the array with zeros (<b>Input array adjusted for stride and padding</b>), and convolved the padded input with a filter (<b>Filter/Kernel</b>) to fetch the output array.
 
 [Code](07-Image-Segmentation/Senmantic_Segmentation_with_U_Net.ipynb)
 
 <b> Mask R-CNN </b>
 
 - Mask R-CNN architecture
+
+The Mask R-CNN architecture helps in identifying/highlighting the instances of
+objects of a given class within an image. This comes in especially handy when there
+are multiple objects of the same type present within the image. Furthermore, the term
+Mask represents the segmentation that's done at the pixel level by Mask R-CNN.
+
+The Mask R-CNN architecture is an extension of the Faster R-CNN network, which
+we learned about in the previous chapter. However, a few modifications have been
+made to the Mask R-CNN architecture, as follows:
+
+- The RoI Pooling layer has been replaced with the RoI Align layer.
+
+- A mask head has been included to predict a mask of objects in addition to
+the head, which already predicts the classes of objects and bounding box
+correction in the final layer.
+
+- A fully convolutional network (FCN) is leveraged for mask prediction.
 
 ![Mask R-CNN architecture](./07-Image-Segmentation/imgs/mask0.png)
 
@@ -238,7 +271,45 @@ To understand how RoI Align works, let's go through a simple example. Here, we a
 
 - Mask head
 
+Using RoI Align, we can get a more accurate representation of the region proposal
+that is obtained from the Region Proposal Network. Now, we want to obtain the
+segmentation (mask) output, given a standard shaped RoI Align output, for every
+region proposal.
+
+Typically, in the case of object detection, we would pass the RoI Align through a
+flattened layer in order to predict the object's class and bounding box offset.
+However, in the case of image segmentation, we predict the pixels within a bounding
+box that contains the object. Hence, we now have a third output (apart from class and
+bounding box offset), which is the predicted mask within the region of interest.
+
+Here, we are predicting the mask, which is an image overlay on top of the original
+image. Given that we are predicting an image, instead of flattening the RoI Align's
+output, we'll connect it to another convolution layer to get another image-like
+structure (width x height in dimension). Let's understand this phenomenon by taking
+a look at the following diagram:
+
 ![RoI Align](./07-Image-Segmentation/imgs/mask8.png)
+
+In the preceding diagram, we have obtained an output of shape 7 x 7 x 2048 using the
+<b> feature pyramid network (FPN) </b>, which now has 2 branches:
+
+- The first branch returns the class of the object and the bounding box, post
+flattening the FPN output.
+
+- The second branch performs convolution on top of the FPN's output to get
+a mask.
+
+The ground truth corresponding to the 14 x 14 output is the resized image of the
+region proposals. The ground truth of the region proposal is of the shape 80 x 14 x 14
+if there are 80 unique classes in the dataset. Each of the 80 x 14 x 14 pixels is a 1 or a 0,
+which indicates whether the pixel contains an object or not. Thus, we are performing
+binary cross-entropy loss minimization while predicting the class of a pixel.
+
+Post model training, we are able to detect regions, get classes, get bounding box
+offsets, and get the mask corresponding to each region. When making an inference,
+we first detect the objects present in the image and make bounding box corrections.
+Then, we pass the offsetted region to the mask head to predict the mask that
+corresponds to different pixels in the region.
 
 
 [Code](07-Image-Segmentation/Instance_Segmentation.ipynb)
@@ -264,6 +335,8 @@ To understand how RoI Align works, let's go through a simple example. Here, we a
 [Neural style transfer](08-Image-Manipulation/neural_style_transfer.ipynb)
 
 <b> Image Generation Using GANs </b>
+
+[Introducing GANs](08-Image-Manipulation/GANs.ipynb)
 
 ![GANs](./08-Image-Manipulation/imgs/auto4.png)
 
