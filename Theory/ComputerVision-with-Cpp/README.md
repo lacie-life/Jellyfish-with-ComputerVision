@@ -1616,6 +1616,10 @@ In the following section, we will see how to implement a model in Keras and perf
 
 ### 4.4.3. ResNet
 
+<b> Residual Block </b>
+
+![ims](./imgs/lesson4-21.png)
+
 ![imgs](./imgs/lesson4-20.png)
 
 ### 4.4.4. Transfer learning
@@ -1624,6 +1628,758 @@ In the previous section we saw three different model types, but in deep learning
 
 In transfer learning, we fix a part of a model from the input to a given layer (also known as freezing a model), such that the pretrained weights will help in computing rich features from the image. The remaining part is trained on task specific datasets. As a result, the remaining part of the model learns better features even with small datasets. The choice of how much of a model to freeze depends on available datasets and repeated experimentation.
 
+## Lesson 5 - Object Detection
+
+### 5.1. Introduction to object detection
+
+To begin with object detection, we will first see an overview of image recognition as detection is one part of it. In the following figure, an overview of object recognition is described using an image from Pascal VOC dataset. The input is passes through a model which then produces information in four different styles:
+
+![imgs](./imgs/lesson5-1.png)
+
+The model in the previous image performs generic image recognition where we can predict the following  information:
+
+- A class name for the object in the image
+- Object center pixel location
+- A bounding box surrounding the object as output
+- In instance image where each pixel is classified into a class. The classes are for object as well as background
+
+When we say object detection, we are usually referring to the first and third type of image recognition. Our goal is to estimate class names as well as bounding box surrounding target objects. Before we begin our discussion on object detection techniques, in the next section we shall see why detecting objects is a difficult computer vision task. 
+
+### 5.2. Challenges in object detection
+
+In the past, several approaches for object detection were proposed. However, these either perform well in a controlled environment or look for special objects in images like a human face. Even in the case of faces, the approaches suffer from issues like low light conditions, a highly occluded face or tiny face size compared to the image size. 
+
+Following are several challenges that are faced by an object detector in real-world applications: 
+
+- <b> Occlusion: </b> Objects like dogs or cats can be hidden behind one another, as a result, the features that can be extracted from them are not strong enough to say that they are an object. 
+
+- <b> Viewpoint changes: </b> In cases of different viewpoints of an object, the shape may change drastically and hence the features of the object will also change drastically. This causes a detector which is trained to see a given object from one viewpoint to fail on seeing it from other viewpoints. For example, in the case of person detection, if the detector is looking for a head, hands, and legs combination to find a person, will fail if we put the camera overhead to take vertical downward facing images. The only thing that the detector will see are heads and hence the results are drastically reduced.
+
+- <b> Variation in sizes: </b> The same object can be far from a camera or near. As a result, the size of objects varies. The detector is therefore required to be size invariant as well as rotation invariant. 
+
+- <b> Non-rigid objects: </b> If the shape of the object splits into parts or there is a fluid object, it becomes even more challenging to describe them using features. 
+
+- <b> Motion-blur: </b> If we are detecting a moving body like a car, there might be cases where the camera captured image is blurred. This is another challenge for the object detectors, to provide a correct estimation, and making a detector robust is crucial when deployed in moving robots like self-driving cars or drones.
+
+### 5.3. Object detection techniques
+
+Object detection is the problem of two steps. First, it should localize an object or multiple objects inside an image. Secondly, it gives out a predicted class for each of the localized objects. There have been several object detection methods that use a sliding window-based approach. One of the popular detection techniques is face detection approach, developed by Viola and Jones[1]. The paper exploited the fact that the human face has strong descriptive features such as regions near eyes which are darker than near the mouth. So there may be a significant difference between the rectangle area surrounding the eyes with respect to the rectangular area near the nose. Using this as one of the several pre-defined patterns of rectangle pairs, their method computed area difference between rectangles in each pattern.
+
+Detecting faces is a two-step process:
+
+- First is to create a classifier with parameters for specific object detection. In our case, it is face detection:
+
+```python
+face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
+```
+
+- In second step, for each image, it face detection is done using previously loaded classifier parameters:
+
+```python
+faces = face_cascade.detectMultiScale(imgae)
+```
+
+OpenCV code:
+
+```python
+import numpy as np
+import cv2
+
+# create cascaded classifier with pre-learned weights
+# For other objects, change the file here
+face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
+
+cap = cv2.VideoCapture(0)
+
+while(True):
+    ret, frame = cap.read()
+    if not ret:
+        print("No frame captured")
+    
+    # frame = cv2.resize(frame, (640, 480))
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # detect face
+    faces = face_cascade.detectMultiScale(gray)
+
+    # plot results
+    for (x,y,w,h) in faces:
+        cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+
+    cv2.imshow('img',frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+```
+
+### 5.4. Deep learning-based object detection
+
+With recent advancements in CNNs and their performance in image classification, it was becoming intuitive to use the similar model style for object detection. This has been proven right, as in the last few years there are better object detectors proposed every year which increases overall accuracy on standard benchmarks. Some of the styles of detectors are already in use in smartphones, robot self-driving cars, and so on. 
+
+A generic CNN outputs class probabilities, as in the case of image recognition. But in order to detect objects, these must be modified to output both the class probability as well as bounding box rectangle coordinates and shape. Early CNN-based object detection, computes possible windows from an input image and then computes features using a CNN model for each window. This output of the CNN feature extractor will then tell us if the chosen window is the target object or not. This is slow due to a large computation of each window through the CNN feature extractor. Intuitively, we would like to extract features from images and use those features for object detection. This not only enhances speed for detection but also filters unwanted noise in the image. 
+
+There have been several methods proposed to tackle such issues of speed and accuracy in object detection. These are in general divided into two major categories: 
+
+- <b> Two-stage detectors: </b> Here, the overall process is divided into two major steps, hence the name two-stage detectors. The most popular among these is Faster R-CNN. In the next section, we will see a detailed explanation of this method.
+
+- <b> One-stage detectors: </b> While two-stage detectors increased accuracy for detection, they were still hard to train and they were slower for several real-time operations. One-stage detectors rectified these issues by making a network in single architecture which predicts faster. One of the popular models of this style is <b> Single Shot Multibox Detector (SSD) </b>.
+
+### 5.4.1. Two-stage detectors
+
+As CNN show their performance in general image classification, researchers used the same CNNs to do better object detection. The initial approaches using deep learning for object detection can be described as two-stage detectors and one of the popular ones is Faster R-CNN by [Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun 2015](https://arxiv.org/pdf/1506.01497.pdf).
+
+The method is divided into two stages:
+
+1. In the first stage, the features are extracted from an image and <b> Region of Interests (ROI) </b> are proposed. ROIs consists of a possible box where an object might be in the image. 
+
+2. The second stage uses features and ROIs to compute final bounding boxes and class probabilities for each of the boxes. These together constitute the final output. 
+
+An overview of Faster-RCNN is as shown in the following figure. An input image is used to extract features and a region proposals. These extracted features and proposals are used together to compute predicted bounding boxes and class probabilities for each box: 
+
+![imgs](./imgs/lesson5-2.png)
+
+As shown in the previous figure, overall method is considered two-stage because during training the model will first learn to produce ROIs using a sub-model called <b> Region Proposal Network (RPN) </b>. It will then learn to produce correct class probabilities and bounding box locations using ROIs and features. An overview of RPN is as shown in the following figure . RPN layer uses feature layer as input creates a proposal for bounding boxes and corresponding probabilities:
+
+![imgs](./imgs/lesson5-3.png)
+
+The bounding box locations are usually normalized values for the top left coordinate of the box with width and height values, though this can change depending on the way the model is learnt. During prediction, the model outputs a set of class probabilities, class categories as well as the bounding box location in (x, y, w, h) format. This set is again passed through a threshold to filter out the bounding boxes with confidence scores less than the threshold.
+
+The major advantage of using this style of the detector is that it gives better accuracy than one-stage detectors. These usually achieve state-of-the-art detection accuracy. However, they suffer from slower speeds during predictions. If for an application prediction, time plays a crucial role, then it is advised to either provide these networks with a high-performance system or use one-stage detectors. On the other hand, if the requirement is to get the best accuracy, it is highly recommended to use such a method for object detection. An example output of object detection is as shown in the following figure with the bounding box around detected objects. Each box has a label showing predicted class name and confidence for the box:
+
+![imgs](./imgs/lesson5-4.png)
+
+The detection in the previous screenshot uses Faster RCNN model and even for small objects, like a person on the right bottom, the model detects with a good confidence score. Overall detected objects are bus, car and person. The model doesn't detect other objects, such as trees, pole, traffic light, and so on because it has not been trained to detect those objects. 
+
+### 5.4.2. One-stage detectors
+
+In the previous section, we saw that two-stage detectors suffer from the issue of slower prediction time and harder training by splitting the network into two. In recently proposed networks like <b> Single Shot Multibox Detectors (SSD) </b>, the prediction time is reduced by removing the intermediate stage and the training is always end-to-end. These networks have shown effectiveness by running on smartphones as well as low-end computation units:
+
+![imgs](./imgs/lesson5-5.png)
+
+An abstract view of the network is shown in the preceding figure. The overall output of the network is same as two-stage, the class probability for the object and bounding box coordinates of the form <b> (x, y, w, h) </b>, where (x,y) is the top-left corner of the rectangle and (w, h) are the width and height of the box respectively. In order to use multiple resolutions, the model not only uses the final layer of feature extraction but also several intermediate feature layers. An abstract view is shown in the following screenshot:
+
+![imgs](./imgs/lesson5-6.png)
+
+To further increase the speed for detection, the model also uses a technique called <b> non-maximal suppression </b>. This will suppress all the <b> Bounding Box </b> which do not have a maximum score in a given region and for a given category. As a result, the total output boxes from the <b> MultiBox Layer </b> are reduced significantly and thus we have only high scored detections per class in an image.
+
+## Lesson 6 - Segmentation and Tracking
+
+### 6.1. Segmentation
+
+Segmentation is often referred to as the clustering of pixels of a similar category. An example is as shown in the following screenshot. Here, we see that inputs are on the left and the segmentation results are on the right. The colors of an object are according to pre-defined object categories. These examples are taken from the Pascal VOC dataset: 
+
+![imgs](./imgs/lesson6-1.png)
+
+In the top picture on the left, there are several small aeroplanes in the background and, therefore, we see small pixels colored accordingly in the corresponding image on the right. In the bottom-left picture, there are two pets laying together, therefore, their segmented image on the right has different colors for the pixels belonging to the cat and dog respectively. In this figure, the boundary is differently colored for convenience and does not imply a different category.
+
+In traditional segmentation techniques, the key property used is image intensity levels. First, different smaller regions of similar intensity values are found, and later they are merged into larger regions. To get the best performance, an initial point is chosen by the user for algorithms. Recent approaches using deep learning have shown better performance without the need for initialization. In further sections, we will see an extension of previously seen CNNs for image segmentation.
+
+Before starting our discussion on segmentation methods, let's look at the challenges. 
+
+### 6.1.1. Challenges in segmentation
+
+The challenges in a segmentation task are greater than the previous object detection task, as the complexity of detection is increased:
+
+- <b> Noisy boundaries: </b> Grouping pixels that belong to a category may not be as accurate due to the fuzzy edges of an object. As a result, objects from different categories are clustered together. 
+
+- <b> Cluttered scene: </b> With several objects in the image frame, it becomes harder to classify pixels correctly. With more clutter, the chances of false positive classification also increase. 
+
+### 6.1.2. CNNs for segmentation
+
+Deep learning based segmentation approaches have recently grown, both in terms of accuracy as well as effectiveness, in more complex domains. One of the popular models using CNN for segmentation is a <b> fully convolutional network (FCN) </b> , which we will explore in this section. This method has the advantage of training an end-to-end CNN to perform pixel-wise semantic segmentation. The output is an image with each pixel classified as either background or into one of the predefined categories of objects. The overall architecture is shown in the following screenshot: 
+
+![imgs](./imgs/lesson6-2.png)
+
+As the layers are stacked hierarchically, the output from each layer gets downsampled yet is feature rich. In the last layer, as shown in the figure, the downsampled output is upsampled using a deconvolutional layer, resulting in the final output being the same size as that of the input. 
+
+The deconvolutional layer is used to transform the input feature to the upsampled feature, however, the name is a bit misleading, as the operation is not exactly the inverse of convolution. This acts as transposed convolution, where the input is convolved after a transpose, as compared to a regular convolution operation.
+
+In the previous model, the upsampling of the feature layer was done with a single layer. This can, however, be extended over to a hierarchical structure, as follows:
+
+![imgs](./imgs/lesson6-3.png)
+
+In the preceding screenshot, the feature extractor is kept the same, while upsampling is updated with more deconvolutional layers where each of these layers upsamples features from the previous layer and generates an overall richer prediction.
+
+### 6.2. Tracking
+
+Tracking is the problem of estimating the position of an object over consecutive image sequences. This is also further divided into single object tracking and multiple object tracking, however, both single and multi-object tracking require slightly different approaches. In this section, we will see the methods for multi-object tracking, as well as single-object tracking. 
+
+The methods for image-based tracking are used in several applications, such as action recognition, self-driving cars, security and surveillance, augmented reality apps, motion capture systems, and video compression techniques. In Augmented Reality (AR) apps, for example, if we want to draw a virtual three-dimensional object on a planar surface, we would want to keep track of the planar surface for a feasible output.
+
+In surveillance or traffic monitoring, tracking vehicles and keeping records of number plates helps to manage traffic and keeps security in check. Also, in video compression applications, if we already know that a single object is the only thing changing in frames, we can perform better compression by using only those pixels that change, thereby optimizing video transmission and receiving. 
+
+### 6.2.1. Challenges in tracking
+
+It is always crucial to know which challenges we need to take care of before building apps. As a standard computer vision method, a lot of the challenges here are common:
+
+- <b> Object occlusion: </b> If the target object is hidden behind other objects in a sequence of images, then it becomes not only hard to detect the object but also to update future images if it becomes visible again. 
+
+- <b> Fast movement: </b> Cameras, such as on smartphones, often suffers from jittery movement. This causes a blurring effect and, sometimes, the complete absence of an object from the frame. Therefore, sudden changes in the motion of cameras also lead to problems in tracking applications.
+
+- <b> Change of shape: </b> If we are targeting non-rigid objects, changes in shape or the complete deformation of an object will often lead to being unable to detect the object and also tracking failure.
+
+- <b> False positives: </b> In a scene with multiple similar objects, it is hard to match which object is targeted in subsequent images. The tracker may lose the current object in terms of detection and start tracking a similar object. 
+
+These challenges can make our applications crash suddenly or give a completely incorrect estimate of an object's location.
+
+### 6.2.2. Tracking methods
+
+An intuitive method for tracking is to use the object detection method from the previous chapter and compute detection in each frame. This will result in a bounding box detection for every frame, but we would also like to know if a particular object stays in the image sequence and for how many frames, that is, to keep track of K-frames for the object in the scene. We would also need a matching strategy to say that the object found in the previous image is the same as the one in the current image frame. 
+
+Continuing with this intuition, we add a predictor for the bounding box motion. We assume a state for the bounding box, which consists of coordinates for the box center as well as its velocities. This state changes as we see more boxes in the sequence.
+
+Given the current state of the box, we can predict a possible region for where it will be in the next frame by assuming some noise in our measurement. The object detector can search for an object similar to the previous object in the next possible region. The location of the newly found object box and the previous box state will help us to update the new state of the box. This will be used for the next frame. As a result, iterating this process over all of the frames will result in not only the tracking of the object bounding box but keeping a location check on particular objects over the whole sequence. This method of tracking is also termed as <b> tracking by detection </b>. 
+
+In tracking by detection, each frame uses an object detector to find possible instances of objects and matches those detections with corresponding objects in the previous frame. 
+
+On the other hand, if no object detector is to be used, we can initialize the target object and track it by matching it and finding a similar object in each frame. 
+
+### 6.2.2.1. MOSSE tracker
+
+This is proposed by for fast object tracking using correlation filter methods. Correlation filter-based tracking comprises the following steps:
+
+1. Assuming a template of a target object T and an input image I, we first take the <b> Fast Fourier Transform (FFT) </b> of both the template (T) and the image (I).
+
+2. A convolution operation is performed between template T and image I. 
+
+3. The result from step 2 is inverted to the spatial domain using <b> Inverse Fast Fourier Transform (IFFT) </b>. The position of the template object in the image I is the max value of the IFFT response we get. 
+
+This correlation filter-based technique has limitations in the choice of T. As a single template image match may not observe all the variations of an object, such as rotation in the image sequence, Bolme, and its co-authors[1] proposed a more robust tracker-based correlation filter, termed as <b> Minimum Output Sum of Squared Error (MOSSE) </b> filter. In this method, the template T for matching is first learned by minimizing a sum of squared error as:
+
+![imgs](./imgs/lesson6-4.png)
+
+Here, i is the training samples and the resulting learned template is T*.
+
+We will look at the key parts of the following code:
+
+```python
+ def correlate(self, img):
+        """
+        Correlation of input image with the kernel
+        """
+
+        # get response in fourier domain
+        C = cv2.mulSpectrums(cv2.dft(img, flags=cv2.DFT_COMPLEX_OUTPUT), 
+                            self.H, 0, conjB=True)
+
+        # compute inverse to get image domain output
+        resp = cv2.idft(C, flags=cv2.DFT_SCALE | cv2.DFT_REAL_OUTPUT)
+       
+        # max location of the response
+        h, w = resp.shape
+        _, mval, _, (mx, my) = cv2.minMaxLoc(resp)
+        side_resp = resp.copy()
+        cv2.rectangle(side_resp, (mx-5, my-5), (mx+5, my+5), 0, -1)
+        smean, sstd = side_resp.mean(), side_resp.std()
+        psr = (mval-smean) / (sstd+eps)
+
+        # displacement of max location from center is displacement for  
+        tracker
+        return resp, (mx-w//2, my-h//2), psr
+```
+
+The update function gets a frame from video or image sequence iteratively and updates the state of the tracker:
+
+```python
+def update(self, frame, rate = 0.125):
+        # compute current state and window size
+        (x, y), (w, h) = self.pos, self.size
+        
+        # compute and update rectangular area from new frame
+        self.last_img = img = cv2.getRectSubPix(frame, (w, h), (x, y))
+        
+        # pre-process it by normalization
+        img = self.preprocess(img)
+        
+        # apply correlation and compute displacement
+        self.last_resp, (dx, dy), self.psr = self.correlate(img)
+        
+  
+        self.good = self.psr > 8.0
+        if not self.good:
+            return
+
+        # update pos
+        self.pos = x+dx, y+dy
+        self.last_img = img = cv2.getRectSubPix(frame, (w, h), self.pos)
+        img = self.preprocess(img)
+
+        
+        A = cv2.dft(img, flags=cv2.DFT_COMPLEX_OUTPUT)
+        H1 = cv2.mulSpectrums(self.G, A, 0, conjB=True)
+        H2 = cv2.mulSpectrums( A, A, 0, conjB=True)
+        
+        self.H1 = self.H1 * (1.0-rate) + H1 * rate
+        self.H2 = self.H2 * (1.0-rate) + H2 * rate
+        self.update_kernel()
+```
+
+A major advantage of using the MOSSE filter is that it is quite fast for real-time tracking systems. The overall algorithm is simple to implement and can be used in the hardware without special image processing libraries, such as embedded platforms. There have been several modifications to this filter and, as such, readers are requested to explore more about these filters.
+
+### 6.2.2.2. Deep SORT
+
+Previously, we looked at one of the simplest trackers. In this section, we will use richer features from CNNs to perform tracking. <b> Deep SORT </b> is a recent algorithm for tracking that extends <b> Simple Online and Real-time Tracking </b> and has shown remarkable results in the <b> Multiple Object Tracking (MOT) </b> problem.
+
+In the problem setting of MOT, each frame has more than one object to track. A generic method to solve this has two steps:
+
+- <b> Detection: </b> First, all the objects are detected in the frame. There can be single or multiple detections. 
+
+- <b> Association: </b> Once we have detections for the frame, a matching is performed for similar detections with respect to the previous frame. The matched frames are followed through the sequence to get the tracking for an object. 
+
+In Deep SORT, this generic method is further divided into three steps:
+
+1. To compute detections, a popular CNN-based object detection method is used. In the paper[2], Faster-RCNN is used to perform the initial detection per frame. As explained in the previous section, this method is two-stage object detection, which performs well for object detection, even in cases of object transformations and occlusions.
+
+2. The intermediate step before data association consists of an estimation model. This uses the state of each track as a vector of eight quantities, that is, box center (x, y), box scale (s), box aspect ratio (a), and their derivatives with time as velocities. The Kalman filter is used to model these states as a dynamical system. If there is no detection of a tracking object for a threshold of consecutive frames, it is considered to be out of frame or lost. For a newly detected box, the new track is started. 
+
+3. In the final step, given the predicted states from Kalman filtering using the previous information and the newly detected box in the current frame, an association is made for the new detection with old object tracks in the previous frame. This is computed using Hungarian algorithm on bipartite graph matching. This is made even more robust by setting the weights of the matching with distance formulation. 
+
+This is further explained in the following diagram. The tracker uses a vector of states to store the historical information for previous detections. If a new frame comes, we can either use pre-stores bounding box detections or compute them using object detection methods. Finally, using current observation of bounding box detections and previous states, the current tracking is estimated:
+
+![imgs](./imgs/lesson6-5.png)
+
+[Deep SORT](https://github.com/nwojke/deep_sort.git)
+
+## Lesson 7 - 3D Computer Vision
+
+### 7.1. 3D Computer Vision applications
+
+While deep learning can extract good features for high-level applications, there are areas that require pixel level matching to compute geometric information from an image. Some of the applications that use this information are:
+
+- <b> Drones: </b> In commercial robots like drones, the image sequence is used to compute the motion of the camera mounted on them. This helps them to make robust motion estimations and, in addition to other Inertial Measurement Units (IMU) such as gyroscopes, accelerometers, and so on, the overall motion is estimated more accurately. 
+
+- <b> Image editing applications: </b> Smartphones and professional applications for image editing include tools like panorama creation, image stitching, and so on. These apps compute orientation from common pixels across image samples and align the images in one target orientation. The resulting image looks as if it has been stitched by joining the end of one image to another.  
+
+- <b> Satellites or space vehicles: </b> In the remote operation of satellites or robots, it is hard and erroneous to obtain orientation after a significant motion. If the robot moves along a path on the moon, it might get lost due to an error in its local GPS systems or inertial measurement units. In order to build more robust systems, an image-based orientation of the camera is also computed and fused other sensor data to obtain more robust motion estimates. 
+
+- <b> Augmented Reality: </b> With the boom in smartphones and apps and the availability of better hardware, several computer vision algorithms that use geometry information can now run in real time. Augmented Reality (AR) apps and games use geometrical properties from a sequence of images. These further combine this information with other sensor data to create a seamless AR experience and we can see a virtual object as if it is a real object placed on the table. Tracking planar objects and computing the relative positions of objects and the camera is crucial in these applications. 
+
+### 7.1. Image information
+
+The basic camera model is a pinhole camera, though the real-world cameras that we use are far more complex models. A pinhole camera is made up of a very small slit on a plane that allows the formation of an image as depicted in the following figure:
+
+![imgs](./imgs/lesson7-1.png)
+
+This camera converts a point in the physical world, often termed the real world, to a pixel on an image plane. The conversion follows the transformation of the three-dimensional coordinate to two-dimensional coordinates. Here in the image plane, the coordinates are denoted as where  $P_i = (x_i, y_i)$ , $P_i$ is any point on an image. In the physical world, the same point is denoted by $P_w = (x, y, z)$ , where $P_w$ is any point in the physical world with a global reference frame. 
+
+$P_i(x', y')$ and $Pw(x, y, z)$ can be related as, for an ideal pin hole camera:
+$
+\begin{equation}
+x' = f \frac{x}{z}
+\end{equation}
+$
+$
+\begin{equation}
+y' = f \frac{y}{z} 
+\end{equation}
+$
+
+Here, $f$ is focal length of the camera. 
+
+For further discussion on geometry of image formation, it is necessary to introduce the homogeneous coordinate system. The physical world coordinate system is referred to as Euclidean coordinate system. In the image plane, a point P' with (x, y) coordinates is represented in homogeneous coordinate system as (x, y, 1). Similarly a point Pw with (x, y, z) in world coordinates can be represented in homogeneous coordinate system as (x, y, z, 1) .
+
+To convert back from homogeneous to Euclidean, we need to divide by the last coordinate value. To convert a point on an image plane in homogeneous system as (x,y, w) to Euclidean system as (x/w, y/w) . Similarly, for a 3D point in a homogeneous system given by (x, y, z, w), the Euclidean coordinates are given by (x/w, y/w, z/ w). In this book, the use of homogeneous coordinate systems will be explicitly mentioned; otherwise we will see equations in the Euclidean coordinate system.
+
+Image formation comes from transforming physical world coordinates to image plane coordinates but losing information about an extra dimension. This means that when we construct an image we are losing depth information for each pixel. As a result, converting back from image pixel coordinates to real-world coordinates is not possible. As shown in the following figure, for a point $P_I$ in the figure there can be an infinite number of points lying along the line. Points $P_1$, $P_2$, and $P_3$ have the same image pixel location, and therefore estimations of depth (distance from camera) are lost during image formation:  
+
+![imgs](./imgs/lesson7-2.png)
+
+Let us observe a point world from two images. If we know the optical center of a camera that constructs an image and the point location of two images, we can get much more information. The following figure explains <b> Epipolar Geometry </b> using two images:
+
+![imgs](./imgs/lesson7-3.png)
+
+In the previous figure, the camera centers $O_1$ and $O_2$ are connected to point $P_w$ in the world, and the plane forming the line $P_w$, $O_1$, $O_2$ is the epipolar plane. The points where the camera's center line O1O2  intersects with the image are epipoles for the image. These may or may not lie on the image. In cases where both the image planes are parallel, the epipoles will lie at infinity. Here, we can define an epipolar constraint, as if we know the transformation between camera center $O_1$ and $O_2$ as translation T and rotation R, we can compute the location of point $P_1$ in <b> Image 1 </b> to the corresponding location in <b> Image 2 </b>. Mathematically, this is written as follows: 
+
+![imgs](./imgs/lesson7-4.png)
+
+Inversely, if know the location of corresponding points in two images, we would like to compute the rotation matrix R and translation matrix T between the two camera centers. Here, if the two cameras are different, the camera centers can be at the different distance from the image plane and, therefore, we would require camera intrinsic parameters too. Mathematically, this is written as follows:
+
+![imgs](./imgs/lesson7-5.png)
+
+Here, F is called the <b> fundamental matrix </b> and K is our camera <b> intrinsic matrix </b> for each camera. Computing F, we can know the correct transformation between the two camera poses and can convert any point on one image plane to another. 
+
+## 7.2. Aligning images 
+
+Image alignment is a problem for computing a transformation matrix so that on applying that transformation to an input image, it can be converted to the target image plane. As a result, the resulting images look like they are stitched together and form a continuous larger image.
+
+Panorama is one such example of aligning images, where we collect images of a scene with changing camera angles and the resulting image is a combination of images aligned. A resulting image is as shown, as follows: 
+
+![imgs](./imgs/lesson7-6.png)
+
+In the preceding figure, an example of panorama creation is shown. Using a camera, we collect multiple images for the same scene by adding overlapping regions. As the camera is moved, often, the pose changes significantly, so therefore for different poses of the camera a transformation matrix is computed. 
+
+Let's get started with a basic method to compute this transformation matrix. The following code works inside Jupyter notebook too. In the following block of code, we define a function to compute oriented BRIEF (ORB) keypoints. There is a descriptor for each keypoint also:
 
 
+```python
+import numpy as np 
+import matplotlib.pyplot as plt 
+import cv2 
+print(cv2.__version__)
+import glob
+# With jupyter notebook uncomment below line 
+# %matplotlib inline 
+# This plots figures inside the notebook
+
+
+
+def compute_orb_keypoints(filename):
+    """
+    Reads image from filename and computes ORB keypoints
+    Returns image, keypoints and descriptors. 
+    """
+    # load image
+    img = cv2.imread(filename)
+    
+    # create orb object
+    orb = cv2.ORB_create()
+    
+    # set method for extraction orb points 
+    orb.setScoreType(cv2.FAST_FEATURE_DETECTOR_TYPE_9_16)
+    orb.setWTA_K(3)
+    
+    # detect keypoints
+    kp = orb.detect(img,None)
+
+    # for detected keypoints compute descriptors. 
+    kp, des = orb.compute(img, kp)
+    
+    return img,kp, des
+```
+
+Once we have feature keypoints, we match them using a brute force matcher, as follows:
+
+```python
+def brute_force_matcher(des1, des2):
+    """
+    Brute force matcher to match ORB feature descriptors
+    """
+    # create BFMatcher object
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING2, crossCheck=True)
+    # Match descriptors.
+    matches = bf.match(des1,des2)
+
+    # Sort them in the order of their distance.
+    matches = sorted(matches, key = lambda x:x.distance)
+
+    return matches
+```
+
+This is our main function for computing the fundamental matrix:
+
+```python
+def compute_fundamental_matrix(filename1, filename2):
+    """
+    Takes in filenames of two input images 
+    Return Fundamental matrix computes 
+    using 8 point algorithm
+    """
+    # compute ORB keypoints and descriptor for each image
+    img1, kp1, des1 = compute_orb_keypoints(filename1)
+    img2, kp2, des2 = compute_orb_keypoints(filename2)
+    
+    # compute keypoint matches using descriptor
+    matches = brute_force_matcher(des1, des2)
+    
+    # extract points
+    pts1 = []
+    pts2 = []
+    for i,(m) in enumerate(matches):
+        if m.distance < 20:
+            #print(m.distance)
+            pts2.append(kp2[m.trainIdx].pt)
+            pts1.append(kp1[m.queryIdx].pt)
+    pts1 = np.asarray(pts1)
+    pts2 = np.asarray(pts2)
+    
+    # Compute fundamental matrix
+    F, mask = cv2.findFundamentalMat(pts1,pts2,cv2.FM_8POINT)
+    return F
+
+
+
+# read list of images form dir in sorted order
+# change here to path to dataset 
+image_dir = '/Users/mac/Documents/dinoRing/'  
+file_list = sorted(glob.glob(image_dir+'*.png'))
+
+#compute F matrix between two images
+print(compute_fundamental_matrix(file_list[0], file_list[2]))
+```
+
+### 7.3. Visual Odometry
+
+Odometry is the process of incrementally estimating the position of a robot or device. In the case of a wheeled robot, it uses wheel motion or inertial measurement using tools such as gyroscopes or accelerometers to estimate the robot's position by summing over wheel rotations. Using visual odometry (VO), we can estimate the odometry of cameras using only image sequences by continuously estimating camera motion. 
+
+A major use of VO is in autonomous robots like drones, where gyroscopes and accelerometers are not robust enough for motion estimation. However, there are several assumptions and challenges in using VO:
+
+- Firstly, objects in the scene for the camera should be static. While the camera captures a sequence of the image, the only moving object should be the camera itself.
+
+- Moreover, during the estimation of VO, if there are significant illumination changes, like light source appearance, drastic changes to pixel values might occur in subsequent images. As a result, VO suffers from large errors or complete dysfunction. The same case applies to dark environments; due to the lack of illumination, VO is not able to estimate robust motion.
+
+The process of VO is described as follows:
+
+1. Initialize the starting position as the origin, for the frame of reference. All the subsequent motion estimation is done with respect to this frame. 
+
+2. As an image arrives, compute features and match corresponding features with previous frames to get a transformation matrix. 
+
+3. Use the historical transformation matrix between all subsequent frames to compute the trajectory of the camera.  
+
+This process is shown in the following figure:
+
+![imgs](./imgs/lesson7-7.png)
+
+Here, $I_i$ is the ith image received from the camera and $T_{ij}$ is the transformation matrix computed using feature matching between $i$ and $j$ images. The trajectory of camera motion is shown with stars, where $P_i$ is the estimated pose of the camera at the ith image. This can be a two-dimensional pose with $(x, y)$ angle as well as a three-dimensional pose. Each $P_j$ is computed as applying the transformation $T_{ij}$ on $P_i$.
+
+Other than the assumption mentioned earlier, there are a few limitations to VO estimation: 
+
+- As more images are observed from the sequence, the errors in trajectory estimation are accumulated. This results in an overall drift in the computed track of camera motion. 
+
+- In cases of sudden motion in camera,  the image feature match between the corresponding two images will be significantly erroneous. As a result, the estimated transformation between the frames will also have huge errors and, therefore, the overall trajectory of camera motion gets highly distorted.  
+
+### 7.4. Visual SLAM
+
+SLAM refers to Simultaneous Localization and Mapping and is one of the most common problems in robot navigation. Since a mobile robot does not have hardcoded information about the environment around itself, it uses sensors onboard to construct a representation of the region. The robot tries to estimate its position with respect to objects around it like trees, building, and so on. This is, therefore, a chicken-egg problem, where the robot first tries to localize itself using objects around it and then uses its obtained location to map objects around it; hence the term Simultaneous  Localization and Mapping. There are several methods for solving the SLAM problem. In this section, we will discuss special types of SLAM using a single RGB camera. 
+
+Visual SLAM methods extend visual odometry by computing a more robust camera trajectory as well as constructing a robust representation of the environment. An overview of Visual SLAM in action is shown in the following figure:
+
+![imgs](./imgs/lesson7-8.png)
+
+This is an overview of a generic SLAM method composed of an undirected graph. Each node of the graph is composed of a keyframe which represents unique information about the world and also contains the camera pose (x,y, angle) for the location. In between, keyframes are frames that overlap significantly with the keyframes scene, however, they help in computing robust estimates of pose for the next frame. Here, a camera starts the process by initializing a keyframe at the origin. As the camera moves along a trajectory, the SLAM system updates the graph by adding keyframes or frames based on criteria. If the camera returns back to a previously seen area, it links up with the old frame, creating a cyclic structure in the graph. This is often called <b> loop closure </b> and helps correct the overall graph structure. The edges connecting nodes to another in the graph are usually weighted with a  transformation matrix between the pose of the two nodes. Overall, the graph structure is corrected by improving the position of keyframes. This is done by minimizing overall error. Once a graph is constructed, it can be saved and used for localizing a camera by matching to the nearest keyframe.  
+
+n this section, we will see a popular robust method, ORB SLAM, using monocular cameras. This method constructs a graph structure similar to that which was shown previously to keep track of camera pose and works on RGB image frames from a simple camera. The steps involved can be summarized as:
+
+1. <b> Input: </b> In the case of the monocular camera, the input is a single captured frame.
+
+2. <b> Initialization: </b> Once the process starts, a map is initialized with the origin, and the first node of a keyframe graph is constructed.
+
+3. There are three threads that run in parallel for the system:
+
+- <b> Tracking: </b> For each incoming frame, ORB features are extracted for matching. These features are matched with previously seen frames and are then used to compute the relative pose of the current frame. This also decides if the current frame is to be kept as a keyframe or used as a normal frame. 
+
+- <b> Local mapping: </b> If a new keyframe is determined from tracking, the overall map is updated with the insertion of a new node in the graph. While a new connection between neighbourhood keyframes is formed, redundant connections are removed.
+
+- <b> Loop closure: </b> If there is a previously seen keyframe that matches the current keyframe, a loop is formed. This gives extra information about drift caused by the trajectory of the camera pose and as a result, all node poses in the graph map is corrected by an optimization algorithm.
+
+## Lesson 8 - Mathematics for Computer Vision - Appendix
+
+### 8.1. Vector
+
+- <b> Denote </b>
+
+In a 2D palne, vectors are denoted as a point $p = (x, y)$
+
+In this case, the magnitude of $p$ is denote as $||p||$ and is given by the following:
+
+![imgs](./imgs/lesson8-1.png)
+
+- <b> Multiplication </b>
+
+Inner product—this is also known as dot product and is the sum of element-wise products of two vectors:
+
+![imgs](./imgs/lesson8-2.png)
+
+Outer product—this takes in two vectors and computes a matrix
+
+![imgs](./imgs/lesson8-3.png)
+
+- <b> vector norm </b>
+
+![imgs](./imgs/lesson8-4.png)
+
+![imgs](./imgs/lesson8-6.png)
+
+![imgs](./imgs/lesson8-5.png)
+
+- <b> Orthogonality </b>
+
+Two vectors are said to be orthogonal if their inner product is zero. From the geometric point of view, if the two vectors are perpendicular, they are said to be orthogonal to each other.
+
+## 8.2. Matrix
+
+Two-dimensional arrays are referred to as matrices and, in computer vision, these play a significant role. An image in the digital world is represented as a matrix; hence, the operations that we will study here are applicable to images as well.
+
+Matrix  is denoted as follows:
+
+![imgs](./imgs/lesson8-7.png)
+
+Here, the shape of the matrix is m x n  with m rows and n columns. If m = n, the matrix is termed as a square matrix.
+
+- <b> Addition </b>
+
+In order to perform the addition of two matrices A and B, both of them should be of the same shape. The addition operation is an element-wise addition done to create a matrix C of the same shape as A and B. 
+
+- <b> Subtraction </b>
+
+Similar to addition, subtracting matrix B from matrix A requires both of them to be of the same shape. The resulting matrix C will be of the same shape as A and B.
+
+- <b> Multiplication </b>
+
+Let there be two matrices: A with size m x n  and B with size q x p. The assumption here is that n == q . Now, the two matrices of sizes m x n and n x p are compatible for matrix multiplication. The multiplication is given as follows:
+
+$C = AB$
+
+Here, each element in $C$ is given as follows:
+
+![imgs](./imgs/lesson8-8.png)
+
+Since matrix multiplication depends on the order of multiplication, reversing the order may result in a different matrix or an invalid multiplication due to size mismatch.
+
+- <b> Transpose </b>
+
+When we interchange columns and rows of a matrix with each other, the resulting matrix is termed as the transpose of the matrix and is denoted as $A^T$ , for an original matrix A.
+
+- 
+<b> Identity matrix </b>
+
+This is a special kind of matrix with diagonal elements as 1 and all other elements as zero.
+
+An interesting property of the identity matrix is that it doesn't modify target matrix after multiplication, that is $C = AI$  or  $C = IA$ will result in $C = I$.
+
+- <b> Diagonal matrix </b>
+
+Extending the definition of an identity matrix, in a diagonal matrix, the entries of a matrix along the main diagonal are non-zero and the rest of the values are zero. 
+
+- <b> Symmetric matrix </b>
+
+ In a symmetric matrix, the elements follow a property: $a_{i, j} = a_{j, i}$ . This element wise property for a given symmetric matrix $A$, can also be defined in terms of a transpose as $A^T = A$.
+
+ $ A+ A^T $ is a symmetric matrix.
+
+An important property arises from this; we can break any square matrix into a summation of symmetric and anti-symmetric matrix, as follows:
+
+$ A = 0.5 * (A + A_T) + 0.5 * (A - A_T)$
+
+- <b> Trace of a matrix </b>
+
+The trace of a matrix is the sum of all its diagonal elements.
+
+- <b> Determinant of a matrix </b>
+
+Geometrically, the absolute value of a determinant of a matrix is the volume enclosed by taking each row as a vector. 
+
+- <b> Norm of a matrix </b>
+
+Continuing the norm formulation from the previous section on vectors, in a matrix, the most common type of norm is the Frobenius norm:
+
+![imgs](./imgs/lesson8-9.png)
+
+- <b> Inverse of a matrix </b>
+
+An inverse of a matrix, denoted as $A^{-1}$ , has an interesting property; $AA^{-1} = I = A^{-1} A$ . The inverse is unique for each matrix; however, not all matrices have inverse matrices.
+
+- <b> Orthogonality </b>
+
+Another property associated with a square matrix is orthogonality, where $A^T A = I$ or $AA^T = I$. This is alose leads to $A^T = A^{-1}$
+
+- <b> Computing eigen values and eigen vectors </b>
+
+The eigenvalue $λ$  of a square matrix A has the property such that any transformation on it with eigen vector $x$ is equal to the scalar multiplication of $\lambda$ with $A$ :
+
+![imgs](./imgs/lesson8-10.png)
+
+To compute eigenvalues and eigen vectors of $A$ , we need to solve the characteristic equation, as follows:
+
+![imgs](./imgs/lesson8-11.png)
+
+Here, $I$ is an identity matrix of the same size as $A.
+
+- <b> Hessian matrix </b>
+
+A first-order gradient matrix of A is formed by computing partial gradients on each element of A:
+
+![imgs](./imgs/lesson8-12.png)
+
+Similarly, the second-order gradient of A for a function $f$ is given as follows:
+
+![imgs](./imgs/lesson8-14.png)
+
+- <b> Singular Value Decomposition (SVD) </b>
+
+![imgs](./imgs/lesson8-15.png)
+
+## Lesson 9 - Introduction to probability theory - Appendix
+
+
+### 9.1. What are random variables?
+
+Random variables are used to define the possibilities of an event in terms of real numbers. The values it can represent are random and, by applying certain assumptions, we can restrict it to given range. To get started with random variables, we need to either compute a function that approximates its behavior or assume and prove our hypothesis function through experimentation. These functions are of two types:
+
+- In the discrete domain, random variables' values are discrete. Then the function used to model probabilities is termed as <b> Probability Mass Function (PMF) </b>. For example, let $x$ be a discrete random variable; its PMF is given by $P(x=k)$ , where $k$ is one of the $K$ different values of random variable $x$.
+
+- In the continuous domain, the function to model random variable's is termed as <b> Probability Density Function (PDF) </b>, which takes in continuous domain values of a random variable $x$ to produce probabilities $p(x)$.
+
+### 9.2. Expectation and variance
+
+- <b> Expectation </b>
+
+For a discrete random variable $x$, the expectation of a function $f$ is given as follows:
+
+![imgs](./imgs/lesson8-16.png)
+
+Here $P(x)$ is the probability mass function.
+
+For a continuous random variable $x$ , the expectation of a function $f$ is given as follows:
+
+![imgs](./imgs/lesson8-17.png)
+
+- <b> Variance </b>
+
+To measure the quality of concentration of a random variable $x$, we use variance. Mathematically, it is defined as follows:
+
+![imgs](./imgs/lesson9-1.png)
+
+This expression can also be converted into:
+
+![imgs](./imgs/lesson9-2.png)
+
+### 9.3. Probability distribution
+
+- <b> Bernoulli distribution </b>
+
+![imgs](./imgs/lesson9-3.png)
+
+- <b> Binomial distribution </b>
+
+![imgs](./imgs/lesson9-4.png)
+
+- <b> Poisson distribution </b>
+
+![imgs](./imgs/lesson9-5.png)
+
+- <b> Uniform distribution </b>
+
+![imgs](./imgs/lesson9-6.png)
+
+- <b> Gaussian distribution </b>
+
+![imgs](./imgs/lesson9-7.png)
+
+Here, the parameters are $\mu$ and $\sigma$ , which are also termed as mean and variance. A special case arises when $\mu$ is 0 and $\sigma$ is 1.0; it is termed as normal distribution.
+
+- <b> Joint distribution </b>
+
+Joint distribution is used for two random variables, if we would like to find the effective probabilities if the two events associated with them happen together. Let $x$ and $y$ be the two random variables; their joint distribution function is given by $p(x, y)$.
+
+- <b> Marginal distribution </b>
+
+In the case of joint distribution, we want to know the probability density function of one event assuming we can observe all the other events. We term this marginal distribution and it is given as follows:
+
+![imgs](./imgs/lesson9-8.png)
+
+- <b> Conditional distribution </b>
+
+![imgs](./imgs/lesson9-9.png)
+
+- <b> Bayes theorem </b>
+
+An important theorem used implicitly in many computer vision applications is Bayes theorem, which extends conditional probabilities as follows in the case of a continuous random variable:
+
+![imgs](./imgs/lesson9-10.png)
+
+Here, we have:
+
+![imgs](./imgs/lesson9-11.png)
 
